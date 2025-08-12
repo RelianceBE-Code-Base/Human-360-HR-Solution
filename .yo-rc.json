@@ -1,0 +1,18 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "22.18.0",
+    "sdksVersions": {},
+    "version": "1.21.1",
+    "libraryName": "goil",
+    "libraryId": "f0898980-eb47-4d58-aa4b-edea1538219e",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "goil",
+    "solutionShortDescription": "goil description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}
