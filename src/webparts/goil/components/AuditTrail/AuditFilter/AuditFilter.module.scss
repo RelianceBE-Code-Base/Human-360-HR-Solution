@@ -1,0 +1,52 @@
+.filtersCard {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+}
+
+.filtersGrid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+
+  select,
+  input,
+  button {
+    border: 1px solid #ccc;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+  }
+
+  button {
+    background: #ea5b06;
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    cursor: pointer;
+
+    &:hover {
+      background: #ea5b06;
+    }
+
+    &:nth-child(2) {
+      background: #059669;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .filtersGrid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}

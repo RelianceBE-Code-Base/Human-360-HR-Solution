@@ -1,0 +1,91 @@
+.kpiListContainer {
+  background-color: #fff;
+  padding: 1.5rem 0;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  h2 {
+      padding: .75rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+  }
+}
+
+.kpiTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+
+  thead {
+    background-color: #f9fafb;
+  }
+
+  th,
+  td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+
+  td:nth-child(2) {
+    text-align: center;
+    padding: 1.25rem 0.5rem;
+  }
+
+  th {
+    font-weight: 600;
+  }
+  td {
+    padding: 1.5rem 0.75rem;
+  }
+
+  tr:hover {
+    background-color: #f9fafb;
+  }
+}
+
+.statusTag {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+
+  &.ongoing {
+    background-color: #f4b400;
+  }
+
+  &.achieved {
+    background-color: #0f9d58;
+  }
+
+  &.missed {
+    background-color: #db4437;
+  }
+}
+
+.actions {
+  i {
+    cursor: pointer;
+    font-size: 1rem;
+
+    &:nth-child(1) {
+      margin-right: 0.5rem;
+    }
+  }
+
+  svg {
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 800;
+  }
+
+  .editIcon {
+    color: #1a73e8;
+  }
+
+  .deleteIcon {
+    color: #db4437;
+  }
+}

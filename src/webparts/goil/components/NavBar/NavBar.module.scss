@@ -1,0 +1,67 @@
+.bgWhite {
+  background-color: white;
+}
+
+.shadowMd {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.mxAuto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.px4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.spaceX0 > * + * {
+  margin-left: 0;
+}
+
+.navBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  
+  i {
+    padding: 0 0 0 0;
+  }
+}
+
+.px6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.py4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.borderB2 {
+  border-bottom-width: 2px;
+}
+
+.borderTransparent {
+  border-color: transparent;
+}
+
+.hoverBorderOrange500:hover {
+  border-color: #f97316;
+}
+
+.transitionColors {
+  transition: border-color 0.2s ease-in-out;
+}
