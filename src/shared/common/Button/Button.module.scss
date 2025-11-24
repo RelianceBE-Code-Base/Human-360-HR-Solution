@@ -1,0 +1,58 @@
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+
+  &Primary {
+    background-color: var(--primary-orange);
+    color: var(--white);
+    // width: 100%;
+
+    &:hover {
+      background-color: var(--primary-orange-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+    }
+  }
+
+  &Secondary {
+    background-color: var(--gray-200);
+    color: var(--gray-700);
+
+    &:hover {
+      background-color: var(--gray-300);
+    }
+  }
+
+  &Success {
+    background-color: var(--success);
+    color: var(--white);
+
+    &:hover {
+      background-color: #059669;
+    }
+  }
+
+  &Danger {
+    background-color: var(--danger);
+    color: var(--white);
+
+    &:hover {
+      background-color: #dc2626;
+    }
+  }
+
+  &Sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}

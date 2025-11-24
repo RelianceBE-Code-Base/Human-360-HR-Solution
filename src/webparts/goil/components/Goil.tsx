@@ -1,17 +1,29 @@
 import * as React from "react";
 import styles from "./Goil.module.scss";
 import type { IGoilProps } from "./IGoilProps";
-import { escape } from "@microsoft/sp-lodash-subset";
+// import { escape } from "@microsoft/sp-lodash-subset";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import { IKPI } from "./IKPI";
+import { IKPI } from "../../../shared/types/IKPI";
 import { IKPIStats } from "./IKPIStats";
-import Header from "./Header/Header";
-import NavBar from "./NavBar/NavBar";
+// import Header from "./Header/Header";
+import SideBar from "../../../navigation/SideBar";
+import TopBar from "../../../navigation/TopBar/TopBar";
+// import NavBar from "./NavBar/NavBar";
 import Dashboard from "./Dashboard/Dashboard";
+import KPIDashboard from "../../../shared/modules/KPI/KPIDashboard";
+import ADashboard from "../../../shared/modules/Dashboard/Dashboard";
 import KPIManagement from "./KPIManagement/KPIManagement";
 import Notification from "./Notification/Notifications";
-import Reports from "./Reports/Reports";
+// import Reports from "./Reports/Reports";
+import Reports from "../../../shared/modules/Administration/Reports";
 import AuditTrail from "./AuditTrail/AuditTrail";
+import CreateKPI from "../../../shared/modules/KPI/CreateKPI";
+import AllKPIs from "../../../shared/modules/KPI/AllKPIs";
+import TeamPerformance from "../../../shared/modules/Performance/TeamPerformance";
+import UserManagement from "../../../shared/modules/Administration/UserManagement";
+import DepartmentManagement from "../../../shared/modules/Administration/DepartmentManagement";
+
+import PerformanceCycles from "../../../shared/modules/Performance/PerformanceCycles";
 
 // ADDED: Define the IKPIStats interface to provide type safety for your state.
 
@@ -61,7 +73,7 @@ export default class Goil extends React.Component<IGoilProps, IGoilState> {
         budget: 150000,
         frequency: "Weekly",
         comments: "Tracking weekly maintenance schedules",
-           progress: this.getProgressPercentage(),
+        progress: this.getProgressPercentage(),
       },
       {
         id: 2,
@@ -612,8 +624,7 @@ export default class Goil extends React.Component<IGoilProps, IGoilState> {
   }
 
   public render(): React.ReactElement<IGoilProps> {
-    const { description, isDarkTheme, environmentMessage, hasTeamsContext } =
-      this.props;
+    const { hasTeamsContext } = this.props;
 
     // Destructure state for cleaner access in JSX
     const { KPIs, kpiStats } = this.state;
@@ -623,50 +634,44 @@ export default class Goil extends React.Component<IGoilProps, IGoilState> {
         <section
           className={`${styles.goil} ${hasTeamsContext ? styles.teams : ""}`}
         >
-          <Header
-            title={"Goil KPI Monitor"}
-            subtitle={"Ghana Oil Company Limited"}
-            userName={"Kamil Alhassan"}
-            userRole={"Department Head"}
-            onLogout={() => {
-              console.log("Logout");
-            }}
-          />
+          <div className={styles.appContainer}>
+            <SideBar></SideBar>
 
-          <NavBar />
-
-          <main>
-            <Routes>
-              {/* IMPROVEMENT: Pass kpiStats to the Dashboard as it will likely need it */}
-              <Route
-                path="/"
-                element={<Dashboard KPIs={KPIs} KPIStats={kpiStats} />}
-              />
-              <Route path="/kpi" element={<KPIManagement KPIs={KPIs} />} />
-              <Route path="/notifications" element={<Notification />} />
-              <Route path="/audit" element={<AuditTrail />} />
-              <Route path="reports" element={<Reports />} />
-              <Route path="*" element={<h2>Coming Soon</h2>} />
-            </Routes>
-
-            {/* Note: This welcome message will appear on ALL routes because it is outside the <Routes> component */}
-            <div className={styles.welcome}>
-              <img
-                alt=""
-                src={
-                  isDarkTheme
-                    ? require("../assets/welcome-dark.png")
-                    : require("../assets/welcome-light.png")
-                }
-                className={styles.welcomeImage}
-              />
-              <h2>Welcome to GOIL KPI Management Tracker!</h2>
-              <div>{environmentMessage}</div>
-              <div>
-                Web part property value: <strong>{escape(description)}</strong>
+            <main className={styles.mainContent}>
+              <TopBar></TopBar>
+              <div className={styles.contentArea}>
+                <Routes>
+                  {/* IMPROVEMENT: Pass kpiStats to the Dashboard as it will likely need it */}
+                  <Route path="/" element={<ADashboard />} />
+                  <Route
+                    path="/d"
+                    element={<Dashboard KPIs={KPIs} KPIStats={kpiStats} />}
+                  />
+                  <Route path="/kpi" element={<KPIManagement KPIs={KPIs} />} />
+                  <Route path="/notifications" element={<Notification />} />
+                  <Route path="/audit" element={<AuditTrail />} />
+                  <Route path="reports" element={<Reports />} />
+                  <Route path="/kPIs/kpi-create" element={<CreateKPI />} />
+                  <Route path="/kpi-dashboard" element={<KPIDashboard />} />
+                  <Route path="/all-kpis" element={<AllKPIs />} />
+                  <Route
+                    path="/team-performance"
+                    element={<TeamPerformance />}
+                  />
+                  <Route
+                    path="/performance-cycles"
+                    element={<PerformanceCycles />}
+                  />
+                  <Route path="/user-management" element={<UserManagement />} />
+                  <Route
+                    path="/department-management"
+                    element={<DepartmentManagement />}
+                  />
+                  <Route path="*" element={<h2>Coming Soon</h2>} />
+                </Routes>
               </div>
-            </div>
-          </main>
+            </main>
+          </div>
         </section>
       </Router>
     );

@@ -1,6 +1,6 @@
 import * as React from "react";
 import styles from "./KPIList.module.scss";
-import { IKPI } from "../IKPI";
+import { IKPI } from "../../../../shared/types/IKPI";
 import { Icon } from "@fluentui/react";
 // import { Icon } from '@fluentui/react/lib/Icon';
 
@@ -17,7 +17,6 @@ const KPIList: React.FC<KPIListProps> = ({ kpis, onEdit, onDelete }) => {
   };
   return (
     <div className={styles.kpiListContainer}>
-      <h2>All KPIs</h2>
       <table className={styles.kpiTable}>
         <thead>
           <tr>

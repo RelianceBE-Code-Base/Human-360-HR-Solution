@@ -1,0 +1,82 @@
+.sidebar {
+  position: sticky;
+
+  // top: 90px; /* ADDED this line */
+
+  /* --- SIZING FIX --- */
+  width: 260px;
+  /* CHANGED height to account for the SharePoint header */
+  // height: calc(100vh - 48px);
+
+  width: 260px;
+  background-color: var(--dark-gray);
+  color: var(--white);
+  padding: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.sidebarHeader {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--dark-gray-light);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sidebarHeader .logo {
+  font-size: 2rem;
+  color: var(--primary-orange-light);
+}
+
+.sidebarHeader h2 {
+  color: var(--white);
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+.sidebarNav {
+  padding: 1rem 0;
+}
+
+.navSection {
+  margin-bottom: 1.5rem;
+}
+
+.navSectionTitle {
+  padding: 0.5rem 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gray-300);
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  color: var(--gray-300);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  gap: 0.75rem;
+  border-left: 3px solid transparent;
+}
+
+.navItem:hover {
+  background-color: var(--dark-gray-light);
+  color: var(--white);
+  border-left-color: var(--primary-orange);
+}
+
+.navItem.active {
+  background-color: var(--dark-gray-light);
+  color: var(--white);
+  border-left-color: var(--primary-orange);
+}
+
+.navItem i {
+  width: 20px;
+  font-size: 1.125rem;
+}

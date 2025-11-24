@@ -4,7 +4,7 @@ import styles from "./Reports.module.scss";
 // import { Icon } from "@fluentui/react/lib/Icon";
 import KPIDetailsForm from "../KPIDetails/KPIDetailsForm";
 import KPIList from "../KPIList/KPIList";
-import { IKPI } from "../IKPI";
+import { IKPI } from "../../../../shared/types/IKPI";
 
 interface IKPIMangementProps {
   KPIs: IKPI[];
