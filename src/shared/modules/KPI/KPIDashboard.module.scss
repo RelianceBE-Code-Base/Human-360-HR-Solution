@@ -1,0 +1,24 @@
+/* Styling for the custom legend below the chart */
+.custom-legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem; /* Space between legend items */
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: #6c757d; /* text-muted color */
+}
+
+.custom-legend span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Space between dot and text */
+}
+
+/* The colored circle for the legend */
+.legend-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}

@@ -6,7 +6,7 @@ import KPIStatusDistribution from "./KPIStatusDistribution/KPIStatusDistribution
 import KPIDepartmentChart from "./KPIDepartmentChart/KPIDepartmentChart";
 // import { Icon } from '@fluentui/react/lib/Icon';
 import styles from "./Dashboard.module.scss";
-import { IKPI } from "../IKPI";
+import { IKPI } from "../../../../shared/types/IKPI";
 import { IKPIStats } from "../IKPIStats";
 
 interface IDashboardProps {
