@@ -2,7 +2,6 @@ import * as React from "react";
 import styles from "./Notification.module.scss";
 import { Icon } from "@fluentui/react";
 import NotificationSettings from "./NotificationSettings/NotificationSettings";
-// import { Icon } from '@fluentui/react/lib/Icon';
 
 interface Notification {
   title: string;

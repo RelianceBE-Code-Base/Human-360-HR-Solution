@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as ReactDom from "react-dom";
 import { Version } from "@microsoft/sp-core-library";
+// import { SPComponentLoader } from "@microsoft/sp-loader";
 import {
   type IPropertyPaneConfiguration,
   PropertyPaneTextField,
@@ -11,6 +12,9 @@ import { IReadonlyTheme } from "@microsoft/sp-component-base";
 import * as strings from "GoilWebPartStrings";
 import Goil from "./components/Goil";
 import { IGoilProps } from "./components/IGoilProps";
+
+// import "./components/global.scss";
+import "../../styles/global.scss";
 
 export interface IGoilWebPartProps {
   description: string;
@@ -35,6 +39,10 @@ export default class GoilWebPart extends BaseClientSideWebPart<IGoilWebPartProps
   }
 
   protected onInit(): Promise<void> {
+    // const componentName = "global";
+    // SPComponentLoader.loadCss(`/dist/lib/${componentName}.css`);
+
+    return super.onInit();
     return this._getEnvironmentMessage().then((message) => {
       this._environmentMessage = message;
     });
@@ -129,30 +137,70 @@ export default class GoilWebPart extends BaseClientSideWebPart<IGoilWebPartProps
       ],
     };
   }
+  // private _ensureDefaultChromeIsDisabled(): void {
+  //   setTimeout(() => {
+  //     console.log("[DEBUG] Hiding SharePoint chrome...");
+
+  //     const safeSelectorsToHide = [
+  //       "#SuiteNavWrapper", // Top nav
+  //       "#spSiteHeader", // Site title/header
+  //       ".commandBarWrapper", // Command bar above
+  //       ".CanvasZone > .ControlZone", // Web part wrapper only (not the CanvasZone)
+  //       ".SPCanvasToolbox", // Toolbox
+  //       ".SPCanvasToolboxRow", // Row selector
+  //       ".SPCanvasInsertButton", // Insert button
+  //     ];
+
+  //     safeSelectorsToHide.forEach((selector) => {
+  //       document.querySelectorAll(selector).forEach((element) => {
+  //         (element as HTMLElement).style.setProperty(
+  //           "display",
+  //           "none",
+  //           "important"
+  //         );
+  //       });
+  //     });
+  //   }, 500);
+
+  //   // Check if the device is mobile and apply mobile-specific styles
+  //   if (this._isMobileDevice()) {
+  //     const mobileElements = [
+  //       ".spMobileHeader",
+  //       ".ms-FocusZone",
+  //       ".ms-CommandBar",
+  //       ".spMobileNav",
+  //       "#O365_MainLink_NavContainer",
+  //       ".ms-Nav",
+  //       ".ms-Nav-item",
+  //     ];
+  //     mobileElements.forEach((selector) => {
+  //       document.querySelectorAll(selector).forEach((element) => {
+  //         (element as HTMLElement).style.display = "none";
+  //       });
+  //     });
+  //   }
+  // }
+
+  // private _isMobileDevice(): boolean {
+  //   return /Mobi|Android/i.test(navigator.userAgent);
+  // }
+
   private _ensureDefaultChromeIsDisabled(): void {
-    setTimeout(() => {
-      console.log("[DEBUG] Hiding SharePoint chrome...");
-
-      const safeSelectorsToHide = [
-        "#SuiteNavWrapper", // Top nav
-        "#spSiteHeader", // Site title/header
-        ".commandBarWrapper", // Command bar above
-        ".CanvasZone > .ControlZone", // Web part wrapper only (not the CanvasZone)
-        ".SPCanvasToolbox", // Toolbox
-        ".SPCanvasToolboxRow", // Row selector
-        ".SPCanvasInsertButton", // Insert button
-      ];
-
-      safeSelectorsToHide.forEach((selector) => {
-        document.querySelectorAll(selector).forEach((element) => {
-          (element as HTMLElement).style.setProperty(
-            "display",
-            "none",
-            "important"
-          );
-        });
+    const elements = [
+      "#workbenchPageContent",
+      "#SuiteNavWrapper",
+      ".SPCanvas-canvas",
+      ".CanvasZone",
+      ".ms-CommandBar",
+      "#spSiteHeader",
+      ".commandBarWrapper",
+    ];
+    elements.forEach((selector) => {
+      document.querySelectorAll(selector).forEach((element) => {
+        (element as HTMLElement).style.display = "none !important";
+        (element as HTMLElement).style.maxWidth = "none";
       });
-    }, 500);
+    });
 
     // Check if the device is mobile and apply mobile-specific styles
     if (this._isMobileDevice()) {
@@ -161,9 +209,9 @@ export default class GoilWebPart extends BaseClientSideWebPart<IGoilWebPartProps
         ".ms-FocusZone",
         ".ms-CommandBar",
         ".spMobileNav",
-        "#O365_MainLink_NavContainer",
-        ".ms-Nav",
-        ".ms-Nav-item",
+        "#O365_MainLink_NavContainer", // Waffle (App Launcher)
+        ".ms-Nav", // Additional possible mobile navigation elements
+        ".ms-Nav-item", // Possible item within the navigation
       ];
       mobileElements.forEach((selector) => {
         document.querySelectorAll(selector).forEach((element) => {
@@ -174,6 +222,11 @@ export default class GoilWebPart extends BaseClientSideWebPart<IGoilWebPartProps
   }
 
   private _isMobileDevice(): boolean {
-    return /Mobi|Android/i.test(navigator.userAgent);
+    // Check if the user is on a mobile device based on user agent or screen width
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isMobile = /iphone|ipod|ipad|android|blackberry|windows phone/i.test(
+      userAgent
+    );
+    return isMobile || window.innerWidth <= 768; // Custom breakpoint for mobile
   }
 }
