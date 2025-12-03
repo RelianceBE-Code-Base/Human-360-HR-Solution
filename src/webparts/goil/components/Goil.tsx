@@ -1,31 +1,21 @@
 import * as React from "react";
 import styles from "./Goil.module.scss";
 import type { IGoilProps } from "./IGoilProps";
-// import { escape } from "@microsoft/sp-lodash-subset";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { IKPI } from "../../../shared/types/IKPI";
 import { IKPIStats } from "./IKPIStats";
-// import Header from "./Header/Header";
-import SideBar from "../../../navigation/SideBar";
-import TopBar from "../../../navigation/TopBar/TopBar";
-// import NavBar from "./NavBar/NavBar";
-import Dashboard from "./Dashboard/Dashboard";
-import KPIDashboard from "../../../shared/modules/KPI/KPIDashboard";
-import ADashboard from "../../../shared/modules/Dashboard/Dashboard";
-import KPIManagement from "./KPIManagement/KPIManagement";
-import Notification from "./Notification/Notifications";
-// import Reports from "./Reports/Reports";
-import Reports from "../../../shared/modules/Administration/Reports";
-import AuditTrail from "./AuditTrail/AuditTrail";
-import CreateKPI from "../../../shared/modules/KPI/CreateKPI";
-import AllKPIs from "../../../shared/modules/KPI/AllKPIs";
-import TeamPerformance from "../../../shared/modules/Performance/TeamPerformance";
-import UserManagement from "../../../shared/modules/Administration/UserManagement";
-import DepartmentManagement from "../../../shared/modules/Administration/DepartmentManagement";
-
-import PerformanceCycles from "../../../shared/modules/Performance/PerformanceCycles";
-
-// ADDED: Define the IKPIStats interface to provide type safety for your state.
+import SideBar from "../../goil/layout/Sidebar/SideBar";
+import TopBar from "../../goil/layout/TopBar/TopBar";
+import Dashboard from "../../../webparts/goil/modules/Dashboard/Dashboard";
+import KPIDashboard from "../../../webparts/goil/modules/KPI/KPI Dashboard/KPIDashboard";
+import AllKPIs from "../../../webparts/goil/modules/KPI/All KPIs/AllKPIs";
+import CreateKPI from "../../../webparts/goil/modules/KPI/Create KPI/CreateKPI";
+import PerformanceCycles from "../../../webparts/goil/modules/Performance/Perfromance Cycles/PerformanceCycles";
+import TeamPerformance from "../../../webparts/goil/modules/Performance/Team Performance/TeamPerformance";
+import UserManagement from "../../../webparts/goil/modules/Administration/User Management/UserManagement";
+import DepartmentManagement from "../../../webparts/goil/modules/Administration/Departments/DepartmentManagement";
+import Reports from "../../../webparts/goil/modules/Administration/Reports & Analytics/Reports";
+import LoginDashboard from "../modules/Login/LoginDashboard";
 
 interface IGoilState {
   KPIs: IKPI[];
@@ -37,7 +27,6 @@ export default class Goil extends React.Component<IGoilProps, IGoilState> {
     super(props);
     this.state = {
       KPIs: [],
-      // Initialize with a valid, empty structure
       kpiStats: {
         KPIStatusCounts: {
           achievedCount: 0,
@@ -587,14 +576,10 @@ export default class Goil extends React.Component<IGoilProps, IGoilState> {
   public componentDidMount(): void {
     const KPIs = this.fetchKPIs();
 
-    // FIXED: Correctly call computeStats and update state
     const kpiStats = this.computeStats(KPIs);
     this.setState({ KPIs, kpiStats });
   }
 
-  // FIXED: This function is now a pure function.
-  // It takes data as input and returns a new computed value without side effects.
-  // It no longer mutates the component's state directly.
   private computeStats(KPIs: IKPI[]): IKPIStats {
     const stats: IKPIStats = {
       KPIStatusCounts: {
@@ -626,53 +611,62 @@ export default class Goil extends React.Component<IGoilProps, IGoilState> {
   public render(): React.ReactElement<IGoilProps> {
     const { hasTeamsContext } = this.props;
 
-    // Destructure state for cleaner access in JSX
-    const { KPIs, kpiStats } = this.state;
-
     return (
       <Router basename="/">
-        <section
-          className={`${styles.goil} ${hasTeamsContext ? styles.teams : ""}`}
-        >
-          <div className={styles.appContainer}>
-            <SideBar></SideBar>
+        <Routes>
+          <Route path="/portal" element={<LoginDashboard />} />
+          <Route
+            path="/*"
+            element={
+              <section
+                className={`${styles.goil} ${
+                  hasTeamsContext ? styles.teams : ""
+                }`}
+              >
+                <div className={styles.appContainer}>
+                  <SideBar></SideBar>
 
-            <main className={styles.mainContent}>
-              <TopBar></TopBar>
-              <div className={styles.contentArea}>
-                <Routes>
-                  {/* IMPROVEMENT: Pass kpiStats to the Dashboard as it will likely need it */}
-                  <Route path="/" element={<ADashboard />} />
-                  <Route
-                    path="/d"
-                    element={<Dashboard KPIs={KPIs} KPIStats={kpiStats} />}
-                  />
-                  <Route path="/kpi" element={<KPIManagement KPIs={KPIs} />} />
-                  <Route path="/notifications" element={<Notification />} />
-                  <Route path="/audit" element={<AuditTrail />} />
-                  <Route path="reports" element={<Reports />} />
-                  <Route path="/kPIs/kpi-create" element={<CreateKPI />} />
-                  <Route path="/kpi-dashboard" element={<KPIDashboard />} />
-                  <Route path="/all-kpis" element={<AllKPIs />} />
-                  <Route
-                    path="/team-performance"
-                    element={<TeamPerformance />}
-                  />
-                  <Route
-                    path="/performance-cycles"
-                    element={<PerformanceCycles />}
-                  />
-                  <Route path="/user-management" element={<UserManagement />} />
-                  <Route
-                    path="/department-management"
-                    element={<DepartmentManagement />}
-                  />
-                  <Route path="*" element={<h2>Coming Soon</h2>} />
-                </Routes>
-              </div>
-            </main>
-          </div>
-        </section>
+                  <main className={styles.mainContent}>
+                    <TopBar></TopBar>
+
+                    <div className={styles.contentArea}>
+                      <Routes>
+                        <Route path="/" element={<Dashboard />} />
+                        <Route
+                          path="/kpi-dashboard"
+                          element={<KPIDashboard />}
+                        />
+                        <Route path="/all-kpis" element={<AllKPIs />} />
+                        <Route
+                          path="/kPIs/kpi-create"
+                          element={<CreateKPI />}
+                        />
+                        <Route
+                          path="/performance-cycles"
+                          element={<PerformanceCycles />}
+                        />
+                        <Route
+                          path="/team-performance"
+                          element={<TeamPerformance />}
+                        />
+                        <Route
+                          path="/user-management"
+                          element={<UserManagement />}
+                        />
+                        <Route
+                          path="/department-management"
+                          element={<DepartmentManagement />}
+                        />
+                        <Route path="reports" element={<Reports />} />
+                        <Route path="*" element={<h2>Coming Soon</h2>} />
+                      </Routes>
+                    </div>
+                  </main>
+                </div>
+              </section>
+            }
+          />
+        </Routes>
       </Router>
     );
   }

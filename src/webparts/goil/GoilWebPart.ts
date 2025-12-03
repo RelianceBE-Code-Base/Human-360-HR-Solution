@@ -1,7 +1,6 @@
 import * as React from "react";
 import * as ReactDom from "react-dom";
 import { Version } from "@microsoft/sp-core-library";
-// import { SPComponentLoader } from "@microsoft/sp-loader";
 import {
   type IPropertyPaneConfiguration,
   PropertyPaneTextField,
@@ -13,7 +12,6 @@ import * as strings from "GoilWebPartStrings";
 import Goil from "./components/Goil";
 import { IGoilProps } from "./components/IGoilProps";
 
-// import "./components/global.scss";
 import "../../styles/global.scss";
 
 export interface IGoilWebPartProps {
@@ -26,7 +24,6 @@ export default class GoilWebPart extends BaseClientSideWebPart<IGoilWebPartProps
 
   public render(): void {
     console.log("[DEBUG] Hiding SharePoint chrome...");
-    this._ensureDefaultChromeIsDisabled();
     const element: React.ReactElement<IGoilProps> = React.createElement(Goil, {
       description: this.properties.description,
       isDarkTheme: this._isDarkTheme,
@@ -38,14 +35,13 @@ export default class GoilWebPart extends BaseClientSideWebPart<IGoilWebPartProps
     ReactDom.render(element, this.domElement);
   }
 
-  protected onInit(): Promise<void> {
-    // const componentName = "global";
-    // SPComponentLoader.loadCss(`/dist/lib/${componentName}.css`);
+  protected async onInit(): Promise<void> {
+    this._ensureDefaultChromeIsDisabled();
 
-    return super.onInit();
     return this._getEnvironmentMessage().then((message) => {
       this._environmentMessage = message;
     });
+    return super.onInit();
   }
 
   private _getEnvironmentMessage(): Promise<string> {
@@ -185,22 +181,83 @@ export default class GoilWebPart extends BaseClientSideWebPart<IGoilWebPartProps
   //   return /Mobi|Android/i.test(navigator.userAgent);
   // }
 
+  // private _ensureDefaultChromeIsDisabled(): void {
+  //   const elements = [
+  //     "#workbenchPageContent",
+  //     "#SuiteNavWrapper",
+  //     ".SPCanvas-canvas",
+  //     ".CanvasZone",
+  //     ".ms-CommandBar",
+  //     "#spSiteHeader",
+  //     ".commandBarWrapper",
+  //   ];
+  //   elements.forEach((selector) => {
+  //     document.querySelectorAll(selector).forEach((element) => {
+  //       (element as HTMLElement).style.display = "none !important";
+  //       (element as HTMLElement).style.maxWidth = "none";
+  //     });
+  //   });
+
+  //   // Check if the device is mobile and apply mobile-specific styles
+  //   if (this._isMobileDevice()) {
+  //     const mobileElements = [
+  //       ".spMobileHeader",
+  //       ".ms-FocusZone",
+  //       ".ms-CommandBar",
+  //       ".spMobileNav",
+  //       "#O365_MainLink_NavContainer", // Waffle (App Launcher)
+  //       ".ms-Nav", // Additional possible mobile navigation elements
+  //       ".ms-Nav-item", // Possible item within the navigation
+  //     ];
+  //     mobileElements.forEach((selector) => {
+  //       document.querySelectorAll(selector).forEach((element) => {
+  //         (element as HTMLElement).style.display = "none";
+  //       });
+  //     });
+  //   }
+  // }
+
+  // private _isMobileDevice(): boolean {
+  //   // Check if the user is on a mobile device based on user agent or screen width
+  //   const userAgent = navigator.userAgent.toLowerCase();
+  //   const isMobile = /iphone|ipod|ipad|android|blackberry|windows phone/i.test(
+  //     userAgent
+  //   );
+  //   return isMobile || window.innerWidth <= 768; // Custom breakpoint for mobile
+  // }
+
   private _ensureDefaultChromeIsDisabled(): void {
-    const elements = [
-      "#workbenchPageContent",
+    //'.SuiteNavWrapper','#spSiteHeader','.sp-appBar','#sp-appBar','#workbenchPageContent', '.SPCanvas-canvas', '.CanvasZone', '.ms-CommandBar', '#spSiteHeader', '.commandBarWrapper'
+    const displayElements = [
       "#SuiteNavWrapper",
-      ".SPCanvas-canvas",
-      ".CanvasZone",
-      ".ms-CommandBar",
       "#spSiteHeader",
+      ".sp-appBar",
+      ".ms-CommandBar",
       ".commandBarWrapper",
+      "#spCommandBar",
+      ".ms-SPLegacyFabric",
+      ".ms-footer",
+      ".sp-pageLayout-footer",
+      ".ms-workbenchFooter",
     ];
-    elements.forEach((selector) => {
+    const widthElements = [
+      "#workbenchPageContent",
+      ".CanvasZone",
+      ".SPCanvas-canvas",
+    ];
+    displayElements.forEach((selector) => {
       document.querySelectorAll(selector).forEach((element) => {
-        (element as HTMLElement).style.display = "none !important";
+        (element as HTMLElement).style.display = "none";
+      });
+    });
+
+    widthElements.forEach((selector) => {
+      document.querySelectorAll(selector).forEach((element) => {
         (element as HTMLElement).style.maxWidth = "none";
       });
     });
+
+    //document.querySelector<HTMLElement>('#spCommandBar')?.style.setProperty('min-height', '0', 'important');
 
     // Check if the device is mobile and apply mobile-specific styles
     if (this._isMobileDevice()) {

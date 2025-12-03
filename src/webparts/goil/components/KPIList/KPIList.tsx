@@ -1,8 +1,25 @@
+/**
+ * KPIList component renders a table of Key Performance Indicators (KPIs) with actions.
+ *
+ * @param {IKPI[]} kpis - Array of KPI objects to display.
+ * @param {(id: number) => void} onEdit - Callback function triggered when editing a KPI.
+ * @param {(id: number) => void} onDelete - Callback function triggered when deleting a KPI.
+ *
+ * Features:
+ * - Displays KPI indicator, department, status, target, and timeline.
+ * - Status color changes dynamically based on progress value:
+ *   - Red for progress < 60
+ *   - Yellow for progress < 100
+ *   - Green for progress >= 100
+ * - Provides edit and delete icons for each KPI row.
+ *
+ * @returns {TSX.Element} A table listing KPIs with actionable icons.
+ */
+
 import * as React from "react";
 import styles from "./KPIList.module.scss";
 import { IKPI } from "../../../../shared/types/IKPI";
 import { Icon } from "@fluentui/react";
-// import { Icon } from '@fluentui/react/lib/Icon';
 
 interface KPIListProps {
   kpis: IKPI[];
@@ -84,5 +101,3 @@ const KPIList: React.FC<KPIListProps> = ({ kpis, onEdit, onDelete }) => {
 };
 
 export default KPIList;
-
-// export {itemsCommandBar};
