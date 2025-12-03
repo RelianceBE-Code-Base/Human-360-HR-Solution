@@ -26,9 +26,9 @@
 import * as React from "react";
 import { Icon } from "@fluentui/react/lib/Icon";
 import styles from "./CreateKPI.module.scss";
-import Card from "../../../components/common/Card/Card";
-import Button from "../../../components/common/Button/Button";
-import { classNames } from "../../../../../shared/utils/classnames";
+import Card from "../../../../components/common/Card/Card";
+import Button from "../../../../components/common/Button/Button";
+import { classNames } from "../../../../../../shared/utils/classnames";
 import { useNavigate } from "react-router-dom";
 
 const TargetsMetricsTab = () => (

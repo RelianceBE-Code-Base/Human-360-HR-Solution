@@ -19,10 +19,10 @@
 
 import * as React from "react";
 import { Icon } from "@fluentui/react/lib/Icon";
-import Card from "../../../components/common/Card/Card";
-import Button from "../../../components/common/Button/Button";
-import { IStatsData } from "../../../../../shared/types/IStatsData";
-import StatsCard from "../../../components/common/Card/StatsCard";
+import Card from "../../../../components/common/Card/Card";
+import Button from "../../../../components/common/Button/Button";
+import { IStatsData } from "../../../../../../shared/types/IStatsData";
+import StatsCard from "../../../../components/common/Card/StatsCard";
 
 const statsCards: IStatsData[] = [
   {

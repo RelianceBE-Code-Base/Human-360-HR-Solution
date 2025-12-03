@@ -6,15 +6,15 @@ import { IKPI } from "../../../shared/types/IKPI";
 import { IKPIStats } from "./IKPIStats";
 import SideBar from "../../goil/layout/Sidebar/SideBar";
 import TopBar from "../../goil/layout/TopBar/TopBar";
-import Dashboard from "../../../webparts/goil/modules/Dashboard/Dashboard";
-import KPIDashboard from "../../../webparts/goil/modules/KPI/KPI Dashboard/KPIDashboard";
-import AllKPIs from "../../../webparts/goil/modules/KPI/All KPIs/AllKPIs";
-import CreateKPI from "../../../webparts/goil/modules/KPI/Create KPI/CreateKPI";
-import PerformanceCycles from "../../../webparts/goil/modules/Performance/Perfromance Cycles/PerformanceCycles";
-import TeamPerformance from "../../../webparts/goil/modules/Performance/Team Performance/TeamPerformance";
-import UserManagement from "../../../webparts/goil/modules/Administration/User Management/UserManagement";
-import DepartmentManagement from "../../../webparts/goil/modules/Administration/Departments/DepartmentManagement";
-import Reports from "../../../webparts/goil/modules/Administration/Reports & Analytics/Reports";
+import Dashboard from "../../../webparts/goil/modules/Administrator/Dashboard/Dashboard";
+import KPIDashboard from "../../../webparts/goil/modules/Administrator/KPI/KPI Dashboard/KPIDashboard";
+import AllKPIs from "../../../webparts/goil/modules/Administrator/KPI/All KPIs/AllKPIs";
+import CreateKPI from "../../../webparts/goil/modules/Administrator/KPI/Create KPI/CreateKPI";
+import PerformanceCycles from "../../../webparts/goil/modules/Administrator/Performance/Perfromance Cycles/PerformanceCycles";
+import TeamPerformance from "../../../webparts/goil/modules/Administrator/Performance/Team Performance/TeamPerformance";
+import UserManagement from "../../../webparts/goil/modules/Administrator/Administration/User Management/UserManagement";
+import DepartmentManagement from "../../../webparts/goil/modules/Administrator/Administration/Departments/DepartmentManagement";
+import Reports from "../../../webparts/goil/modules/Administrator/Administration/Reports & Analytics/Reports";
 import LoginDashboard from "../modules/Login/LoginDashboard";
 
 interface IGoilState {

@@ -28,12 +28,12 @@
 
 import * as React from "react";
 import { Icon } from "@fluentui/react/lib/Icon";
-import performanceCyclesData from "../../../../../shared/constant/performanceCycles";
-import Card from "../../../components/common/Card/Card";
-import Button from "../../../components/common/Button/Button";
-import { IStatsData } from "../../../../../shared/types/IStatsData";
-import StatsCard from "../../../components/common/Card/StatsCard";
-import { Modal } from "../../../components/common/Modal/Modal";
+import performanceCyclesData from "../../../../../../shared/constant/performanceCycles";
+import Card from "../../../../components/common/Card/Card";
+import Button from "../../../../components/common/Button/Button";
+import { IStatsData } from "../../../../../../shared/types/IStatsData";
+import StatsCard from "../../../../components/common/Card/StatsCard";
+import { Modal } from "../../../../components/common/Modal/Modal";
 
 interface IPerformanceCycle {
   id: number;

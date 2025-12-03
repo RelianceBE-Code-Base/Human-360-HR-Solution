@@ -16,8 +16,8 @@
 
 import * as React from "react";
 import { Icon } from "@fluentui/react/lib/Icon";
-import Card from "../../../components/common/Card/Card";
-import Button from "../../../components/common/Button/Button";
+import Card from "../../../../components/common/Card/Card";
+import Button from "../../../../components/common/Button/Button";
 
 const initialReportFilters = {
   reportType: "kpi_progress",

@@ -29,10 +29,10 @@
  */
 
 import * as React from "react";
-import StatsCard from "../../../components/common/Card/StatsCard";
-import { IStatsData } from "../../../../../shared/types/IStatsData";
-import Card from "../../../components/common/Card/Card";
-import Button from "../../../components/common/Button/Button";
+import StatsCard from "../../../../components/common/Card/StatsCard";
+import { IStatsData } from "../../../../../../shared/types/IStatsData";
+import Card from "../../../../components/common/Card/Card";
+import Button from "../../../../components/common/Button/Button";
 import { Icon } from "@fluentui/react/lib/Icon";
 import {
   Chart as ChartJS,
@@ -45,8 +45,8 @@ import {
   ChartData,
 } from "chart.js";
 import { Doughnut, Bar } from "react-chartjs-2";
-import KPIs from "../../../../../shared/constant/kpis";
-import { IKPI } from "../../../../../shared/types/IKPI";
+import KPIs from "../../../../../../shared/constant/kpis";
+import { IKPI } from "../../../../../../shared/types/IKPI";
 
 ChartJS.register(
   ArcElement,
