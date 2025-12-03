@@ -1,0 +1,41 @@
+/* 
+ * Breadcrumb Styles
+ * 
+ * .breadcrumb
+ *   - Container for breadcrumb navigation.
+ *   - Displays items horizontally with subtle gray styling.
+ *
+ * .breadcrumbItem
+ *   - Individual breadcrumb element.
+ *   - Text is capitalized for improved readability.
+ *
+ * .breadcrumbItem + .breadcrumbItem::before
+ *   - Adds a "/" separator between items.
+ *   - Only appears between subsequent breadcrumb items.
+ *
+ * .breadcrumbItem a
+ *   - Styles links inside breadcrumb items.
+ *   - Removes underline and applies consistent gray color.
+ */
+.breadcrumb {
+  list-style: none;
+  color: var(--gray-600);
+  font-size: 0.9rem;
+  display: flex;
+}
+
+.breadcrumbItem {
+  display: inline;
+  text-transform: capitalize;
+}
+
+/* Add a separator (e.g., '/') between items */
+.breadcrumbItem + .breadcrumbItem::before {
+  padding: 0 5px;
+  content: "/";
+}
+
+.breadcrumbItem a {
+  color: var(--gray-600);
+  text-decoration: none;
+}

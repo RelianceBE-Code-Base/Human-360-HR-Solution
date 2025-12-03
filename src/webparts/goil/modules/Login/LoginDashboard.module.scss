@@ -1,0 +1,228 @@
+// LoginDashboard.module.scss
+
+// --- Variables ---
+$primary-orange: #f2963a;
+$primary-orange-dark: #e08328;
+$bg-page: #f0f2f5;
+$text-white: #ffffff;
+$text-dark: #1f2937;
+$text-grey: #6b7280;
+$card-border: #e5e7eb;
+$hover-shadow: 0 10px 25px rgba(242, 150, 58, 0.15);
+
+.pageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: $bg-page;
+  font-family: "Segoe UI", "Roboto", sans-serif;
+//   padding: 1rem;
+  box-sizing: border-box;
+}
+
+.mainCard {
+  display: flex;
+  width: 100%;
+//   max-width: 1000px; // Wide card
+  //   min-height: 600px;
+  height: 100vh;
+  width: 100vw;
+  background: white;
+//   border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  overflow: hidden; // Ensures the orange panel respects corners
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    min-height: auto;
+  }
+}
+
+// --- Left Panel (Orange) ---
+.leftPanel {
+  flex: 1;
+  background: linear-gradient(135deg, $primary-orange, $primary-orange-dark);
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  color: $text-white;
+
+  // Decorative Circles
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &::before {
+    width: 300px;
+    height: 300px;
+    bottom: -100px;
+    right: -50px;
+  }
+
+  &::after {
+    width: 150px;
+    height: 150px;
+    top: -50px;
+    left: -50px;
+  }
+
+  // Content inside left panel
+  .brandContent {
+    position: relative;
+    z-index: 2;
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      color: $text-white;
+    }
+
+    p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      line-height: 1.6;
+      max-width: 400px;
+    }
+  }
+
+  .footer {
+    position: relative;
+    z-index: 2;
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+}
+
+// --- Right Panel (White) ---
+.rightPanel {
+  flex: 1.2; // Slightly wider than left
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    padding: 2rem;
+  }
+
+  h2 {
+    color: $text-dark;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .subHeader {
+    color: $text-grey;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+}
+
+// --- Role Selection Grid ---
+.rolesGrid {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bottomRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr; // Stack on small screens
+  }
+}
+
+// --- Card Item Styling ---
+.roleCard {
+  background: white;
+  border: 1px solid $card-border;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+
+  &:hover {
+    border-color: $primary-orange;
+    box-shadow: $hover-shadow;
+    transform: translateY(-2px);
+
+    .arrowIcon {
+      transform: translateX(4px); // Subtle animation
+      color: $primary-orange;
+    }
+  }
+}
+
+// Specific adjustments for smaller cards
+.smallCard {
+  padding: 1rem 0.5rem; // Tighter padding
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  .cardContent {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+// --- Inner Card Elements ---
+.iconCircle {
+  width: 48px;
+  height: 48px;
+  min-width: 48px; // Prevent shrinking
+  background-color: #fff4e6; // Very light orange
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  color: $primary-orange-dark;
+  font-size: 1.2rem;
+}
+
+.textGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    margin: 0.5rem 0 0 0;
+    color: #222222;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  p {
+    margin: 0;
+    color: $text-grey;
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+}
+
+.arrowIcon {
+  color: #ccc;
+  transition: all 0.2s;
+  margin-left: 1rem;
+}
