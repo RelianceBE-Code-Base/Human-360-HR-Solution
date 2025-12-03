@@ -23,9 +23,9 @@
 
 import * as React from "react";
 import styles from "./Dashboard.module.scss";
-import Card from "../../components/common/Card/Card";
-import StatsCard from "../../components/common/Card/StatsCard";
-import { IStatsData } from "../../../../shared/types/IStatsData";
+import Card from "../../../components/common/Card/Card";
+import StatsCard from "../../../components/common/Card/StatsCard";
+import { IStatsData } from "../../../../../shared/types/IStatsData";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -39,8 +39,8 @@ import {
 } from "chart.js";
 import { Line, Doughnut } from "react-chartjs-2";
 
-import KPIs from "../../../../shared/constant/kpis";
-import { IKPI } from "../../../../shared/types/IKPI";
+import KPIs from "../../../../../shared/constant/kpis";
+import { IKPI } from "../../../../../shared/types/IKPI";
 import { useNavigate } from "react-router-dom";
 
 const viewAllRoutes: Record<string, string> = {
