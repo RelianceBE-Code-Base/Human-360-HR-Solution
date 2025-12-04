@@ -61,13 +61,13 @@ const mockAppraisals = [
   { id: 103, employee: "John Doe", status: "Pending" },
 ];
 
-const mockDepartments = [
-  { name: "Finance", staff: 7, budget: 2500000, status: "Active" },
-  { name: "Operations", staff: 20, budget: 8000000, status: "Active" },
-  { name: "Marketing", staff: 10, budget: 4000000, status: "Active" },
-  { name: "HR", staff: 6, budget: 2000000, status: "Active" },
-  { name: "IT", staff: 8, budget: 3500000, status: "Active" },
-  { name: "Sales", staff: 12, budget: 5000000, status: "Active" },
+const mockPerformance = [
+  { name: "Communication", staff: 7, budget: 2500000, status: "Active" },
+  { name: "Teamwork", staff: 20, budget: 8000000, status: "Active" },
+  { name: "Leadership", staff: 10, budget: 4000000, status: "Active" },
+  { name: "Attention to detail", staff: 6, budget: 2000000, status: "Active" },
+  { name: "Technical skills", staff: 8, budget: 3500000, status: "Active" },
+  { name: "Problem Solving", staff: 12, budget: 5000000, status: "Active" },
 ];
 
 interface IDepartment {
@@ -109,7 +109,7 @@ const initialStats: IStatsData[] = [
     icon: "FavoriteStarFill",
     value: 0,
     iconColour: "orange",
-    change: { description: "Active & Inactive", type: "neutral", icon: "" },
+    change: { description: "Last quater", type: "neutral", icon: "" },
   },
   {
     label: "Goal Completed",
@@ -117,14 +117,14 @@ const initialStats: IStatsData[] = [
     value: 0,
     iconColour: "success",
     change: {
-      description: "Across all departments",
+      description: "3 goals in progress",
       type: "neutral",
       icon: "",
     },
   },
   {
     label: "Feedback Received",
-    icon: "WorkItem",
+    icon: "ActivityFeed",
     value: 0,
     iconColour: "warning",
     change: {
@@ -135,10 +135,10 @@ const initialStats: IStatsData[] = [
   },
   {
     label: "Skill Growth",
-    icon: "EMI",
+    icon: "Education",
     value: 0,
     iconColour: "info",
-    change: { description: "With active KPIs", type: "neutral", icon: "" },
+    change: { description: "Top growth: Leadership", type: "neutral", icon: "" },
   },
 ];
 
@@ -209,32 +209,28 @@ const RecentKpiUpdates: React.FC<IRecentKpiUpdatesProps> = ({ kpis }) => (
 
 const initialLineChartData = {
   labels: [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ],
+    "Q1 2024",
+    "Q2 2024",
+    "Q3 2024",
+    "Q4 2024",
+    "Q1 2025",
+    "Q2 2025",
+    "Q3 2025",
+    "Q4 2025",
+      ],
   datasets: [
     {
-      label: "KPIs Achieved",
+      label: "Team Average",
       data: [],
-      borderColor: "#ea5b0c",
-      backgroundColor: "rgba(234, 91, 12, 0.1)",
+      borderColor: "#0c82eaff",
+      backgroundColor: "rgba(187, 210, 251, 0.94)",
       fill: true,
       tension: 0.4,
     },
   ],
 };
 const initialDoughnutChartData = {
-  labels: ["Finance", "Operations", "Marketing", "HR", "IT", "Sales"],
+  labels: ["Attention to detail", "Communication", "Technical Skills", "Teamwork", "Leadership", "Problem solving"],
   datasets: [
     {
       label: "Number of Staff",
@@ -264,14 +260,14 @@ const EmpDashboard: React.FC = () => {
   const [allKpis, setAllKpis] = React.useState<IKPI[]>([]);
   const [allUsers, setAllUsers] = React.useState(mockUsers); // Assuming simple user type
   const [allAppraisals, setAllAppraisals] = React.useState(mockAppraisals);
-  const [departments, setDepartments] = React.useState<IDepartment[]>([]);
+  const [departments, setPerformancemetrics] = React.useState<IDepartment[]>([]);
   const navigate = useNavigate();
 
   React.useEffect(() => {
     setAllKpis(KPIs);
     setAllUsers(mockUsers);
     setAllAppraisals(mockAppraisals);
-    setDepartments(mockDepartments);
+    setPerformancemetrics(mockPerformance);
   }, []);
 
   React.useEffect(() => {
@@ -364,7 +360,7 @@ const EmpDashboard: React.FC = () => {
           marginBottom: "2rem",
         }}
       >
-        <Card title="KPI Status Distribution">
+        <Card title="Skill Assessment">
           <div className={styles.chartContainer}>
             <Doughnut
               options={{
@@ -389,7 +385,7 @@ const EmpDashboard: React.FC = () => {
           </div>
         </Card>
 
-        <Card title="KPI Achievement Progress (Cumulative)">
+        <Card title="Performance Trend">
           <div className={styles.chartContainer}>
             <Line
               data={lineChartData} // Use dynamic data from state
@@ -403,11 +399,11 @@ const EmpDashboard: React.FC = () => {
           </div>
         </Card>
 
-        <Card title={<CardHeader title="Department Overview" showViewAll />}>
+        <Card title={<CardHeader title="Action Items" showViewAll />}>
           <DepartmentOverview departments={departments} />
         </Card>
 
-        <Card title={<CardHeader title="Recent KPI Updates" showViewAll />}>
+        <Card title={<CardHeader title="Recent Activities" showViewAll />}>
           <RecentKpiUpdates kpis={allKpis.slice(0, 5)} />
         </Card>
       </div>
