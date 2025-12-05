@@ -7,6 +7,7 @@ import { IKPIStats } from "./IKPIStats";
 import SideBar from "../../goil/layout/Sidebar/SideBar";
 import TopBar from "../../goil/layout/TopBar/TopBar";
 import Dashboard from "../../../webparts/goil/modules/Dashboard/Dashboard";
+import ManagerDashboard from "../../../webparts/goil/modules/Manager/ManagerDashboard/Managerdashboard";
 import KPIDashboard from "../../../webparts/goil/modules/KPI/KPI Dashboard/KPIDashboard";
 import AllKPIs from "../../../webparts/goil/modules/KPI/All KPIs/AllKPIs";
 import CreateKPI from "../../../webparts/goil/modules/KPI/Create KPI/CreateKPI";
@@ -659,6 +660,13 @@ export default class Goil extends React.Component<IGoilProps, IGoilState> {
                         />
                         <Route path="reports" element={<Reports />} />
                         <Route path="*" element={<h2>Coming Soon</h2>} />
+
+                        {/* Manager section */}
+                        <Route
+                          path="/ManagerDashboard"
+                          element={<ManagerDashboard />}
+                        />
+
                       </Routes>
                     </div>
                   </main>
