@@ -82,7 +82,6 @@ const SideBar: React.FC = () => {
             <span>Reports & Analytics</span>
           </NavLink>
         </div>
-<<<<<<< HEAD
 
           {/* /*Manager sidenav Section*/ }
         <div className={styles.navSection}>
@@ -129,7 +128,6 @@ const SideBar: React.FC = () => {
           </NavLink>
         </div> 
 
-=======
         {/* User side bar view */}
         EmployeeDashboard
         <div className={styles.navSection}>
@@ -149,7 +147,6 @@ const SideBar: React.FC = () => {
         </div>
         {/* BDE side bar view */}
         {/* Manager side bar view */}
->>>>>>> cf3328ba1068bc5b223881d18f745a6b4575aed0
       </nav>
     </aside>
   );

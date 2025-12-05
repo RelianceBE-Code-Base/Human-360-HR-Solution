@@ -6,19 +6,8 @@ import { IKPI } from "../../../shared/types/IKPI";
 import { IKPIStats } from "./IKPIStats";
 import SideBar from "../../goil/layout/Sidebar/SideBar";
 import TopBar from "../../goil/layout/TopBar/TopBar";
-<<<<<<< HEAD
-import Dashboard from "../../../webparts/goil/modules/Dashboard/Dashboard";
-import ManagerDashboard from "../../../webparts/goil/modules/Manager/ManagerDashboard/Managerdashboard";
-import KPIDashboard from "../../../webparts/goil/modules/KPI/KPI Dashboard/KPIDashboard";
-import AllKPIs from "../../../webparts/goil/modules/KPI/All KPIs/AllKPIs";
-import CreateKPI from "../../../webparts/goil/modules/KPI/Create KPI/CreateKPI";
-import PerformanceCycles from "../../../webparts/goil/modules/Performance/Perfromance Cycles/PerformanceCycles";
-import TeamPerformance from "../../../webparts/goil/modules/Performance/Team Performance/TeamPerformance";
-import UserManagement from "../../../webparts/goil/modules/Administration/User Management/UserManagement";
-import DepartmentManagement from "../../../webparts/goil/modules/Administration/Departments/DepartmentManagement";
-import Reports from "../../../webparts/goil/modules/Administration/Reports & Analytics/Reports";
-=======
 import Dashboard from "../../../webparts/goil/modules/Administrator/Dashboard/Dashboard";
+import ManagerDashboard from "../../../webparts/goil/modules/Manager/ManagerDashboard/ManagerDashboard";
 import KPIDashboard from "../../../webparts/goil/modules/Administrator/KPI/KPI Dashboard/KPIDashboard";
 import AllKPIs from "../../../webparts/goil/modules/Administrator/KPI/All KPIs/AllKPIs";
 import CreateKPI from "../../../webparts/goil/modules/Administrator/KPI/Create KPI/CreateKPI";
@@ -27,7 +16,6 @@ import TeamPerformance from "../../../webparts/goil/modules/Administrator/Perfor
 import UserManagement from "../../../webparts/goil/modules/Administrator/Administration/User Management/UserManagement";
 import DepartmentManagement from "../../../webparts/goil/modules/Administrator/Administration/Departments/DepartmentManagement";
 import Reports from "../../../webparts/goil/modules/Administrator/Administration/Reports & Analytics/Reports";
->>>>>>> cf3328ba1068bc5b223881d18f745a6b4575aed0
 import LoginDashboard from "../modules/Login/LoginDashboard";
 
 interface IGoilState {
