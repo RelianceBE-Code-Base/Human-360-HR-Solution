@@ -16,6 +16,7 @@ import UserManagement from "../../../webparts/goil/modules/Administrator/Adminis
 import DepartmentManagement from "../../../webparts/goil/modules/Administrator/Administration/Departments/DepartmentManagement";
 import Reports from "../../../webparts/goil/modules/Administrator/Administration/Reports & Analytics/Reports";
 import LoginDashboard from "../modules/Login/LoginDashboard";
+import EmpDashboard from "../../goil/modules/Employee/EmpDashboard/EmpDashboard";
 
 interface IGoilState {
   KPIs: IKPI[];
@@ -632,6 +633,7 @@ export default class Goil extends React.Component<IGoilProps, IGoilState> {
                     <div className={styles.contentArea}>
                       <Routes>
                         <Route path="/" element={<Dashboard />} />
+                        <Route path="/EmpDashboard" element={<EmpDashboard />} />
                         <Route
                           path="/kpi-dashboard"
                           element={<KPIDashboard />}

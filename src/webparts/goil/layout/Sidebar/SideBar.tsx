@@ -83,16 +83,24 @@ const SideBar: React.FC = () => {
           </NavLink>
         </div>
         {/* User side bar view */}
-        EmployeeDashboard
+       {/*Employee Dashboard*/}
         <div className={styles.navSection}>
-          <div className={styles.navSectionTitle}>User Dashboard</div>
-          <NavLink to="/EmployeeDashboard" className={getNavLinkClass}>
+          <div className={styles.navSectionTitle}>Employee Dashboard</div>
+          <NavLink to="/EmpDashboard" className={getNavLinkClass}>
             <Icon iconName="PlayerSettings"></Icon>
-            <span>User Dashboard</span>
+            <span>Employee Dashboard</span>
           </NavLink>
           <NavLink to="/department-management" className={getNavLinkClass}>
             <Icon iconName="EMI"></Icon>
-            <span>Departments</span>
+            <span>Feedback</span>
+          </NavLink>
+          <NavLink to="/reports" className={getNavLinkClass}>
+            <Icon iconName="PowerBILogo16"></Icon>
+            <span>Perfromance Review</span>
+          </NavLink>
+          <NavLink to="/department-management" className={getNavLinkClass}>
+            <Icon iconName="EMI"></Icon>
+            <span>Goals</span>
           </NavLink>
           <NavLink to="/reports" className={getNavLinkClass}>
             <Icon iconName="PowerBILogo16"></Icon>
