@@ -82,6 +82,52 @@ const SideBar: React.FC = () => {
             <span>Reports & Analytics</span>
           </NavLink>
         </div>
+
+          {/* /*Manager sidenav Section*/ }
+        <div className={styles.navSection}>
+          <div className={styles.navSectionTitle}>Manager Section</div>
+          <NavLink to="/ManagerDashboard" className={getNavLinkClass} end>
+            <Icon iconName="ViewDashboard"></Icon>
+            <span>Manager Dashboard</span>
+          </NavLink>
+          <NavLink to="/" className={getNavLinkClass} end>
+            <Icon iconName="AddToShoppingList"></Icon>
+            <span>Feedback</span>
+          </NavLink>
+          <NavLink to="/" className={getNavLinkClass} end>
+            <Icon iconName="Calendar"></Icon>
+            <span>Performance Review</span>
+          </NavLink>
+          <NavLink to="/" className={getNavLinkClass} end>
+            <Icon iconName="Chart"></Icon>
+            <span>Goals</span>
+          </NavLink>
+          <NavLink to="/" className={getNavLinkClass} end>
+            <Icon iconName="PowerBILogo16"></Icon>
+            <span>Report and Analytics</span>
+          </NavLink>
+        </div>
+
+        <div className={styles.navSection}>
+          <div className={styles.navSectionTitle}>Management Module</div>
+          <NavLink to="/user-management" className={getNavLinkClass}>
+            <Icon iconName="ViewDashboard"></Icon>
+            <span>Dashboard</span>
+          </NavLink>
+          <NavLink to="/department-management" className={getNavLinkClass}>
+            <Icon iconName="Group"></Icon>
+            <span>Team Management</span>
+          </NavLink>
+          <NavLink to="/reports" className={getNavLinkClass}>
+            <Icon iconName="AccessibiltyChecker"></Icon>
+            <span>Performance Review</span>
+          </NavLink>
+          <NavLink to="/reports" className={getNavLinkClass}>
+            <Icon iconName="CircleAdditionSolid"></Icon>
+            <span>Create KPI</span>
+          </NavLink>
+        </div> 
+
         {/* User side bar view */}
        {/*Employee Dashboard*/}
         <div className={styles.navSection}>
