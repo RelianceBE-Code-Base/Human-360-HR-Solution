@@ -32,6 +32,7 @@ const SideBar: React.FC = () => {
         <h2>GOIL PMS</h2>
       </div>
 
+      {/* Administrator side bar view */}
       <nav className={styles.sidebarNav}>
         <div className={styles.navSection}>
           <div className={styles.navSectionTitle}>Main</div>
@@ -40,7 +41,6 @@ const SideBar: React.FC = () => {
             <span>Dashboard</span>
           </NavLink>
         </div>
-
         <div className={styles.navSection}>
           <div className={styles.navSectionTitle}>KPI Management</div>
           <NavLink to="/kpi-dashboard" className={getNavLinkClass}>
@@ -56,7 +56,6 @@ const SideBar: React.FC = () => {
             <span>Create KPI</span>
           </NavLink>
         </div>
-
         <div className={styles.navSection}>
           <div className={styles.navSectionTitle}>Performance</div>
           <NavLink to="/performance-cycles" className={getNavLinkClass}>
@@ -68,7 +67,6 @@ const SideBar: React.FC = () => {
             <span>Team Performance</span>
           </NavLink>
         </div>
-
         <div className={styles.navSection}>
           <div className={styles.navSectionTitle}>Administration</div>
           <NavLink to="/user-management" className={getNavLinkClass}>
@@ -84,6 +82,7 @@ const SideBar: React.FC = () => {
             <span>Reports & Analytics</span>
           </NavLink>
         </div>
+<<<<<<< HEAD
 
           {/* /*Manager sidenav Section*/ }
         <div className={styles.navSection}>
@@ -130,6 +129,27 @@ const SideBar: React.FC = () => {
           </NavLink>
         </div> 
 
+=======
+        {/* User side bar view */}
+        EmployeeDashboard
+        <div className={styles.navSection}>
+          <div className={styles.navSectionTitle}>User Dashboard</div>
+          <NavLink to="/EmployeeDashboard" className={getNavLinkClass}>
+            <Icon iconName="PlayerSettings"></Icon>
+            <span>User Dashboard</span>
+          </NavLink>
+          <NavLink to="/department-management" className={getNavLinkClass}>
+            <Icon iconName="EMI"></Icon>
+            <span>Departments</span>
+          </NavLink>
+          <NavLink to="/reports" className={getNavLinkClass}>
+            <Icon iconName="PowerBILogo16"></Icon>
+            <span>Reports & Analytics</span>
+          </NavLink>
+        </div>
+        {/* BDE side bar view */}
+        {/* Manager side bar view */}
+>>>>>>> cf3328ba1068bc5b223881d18f745a6b4575aed0
       </nav>
     </aside>
   );

@@ -27,14 +27,14 @@
 
 import * as React from "react";
 import { Icon } from "@fluentui/react/lib/Icon";
-import Card from "../../../components/common/Card/Card";
-import Button from "../../../components/common/Button/Button";
-import { IStatsData } from "../../../../../shared/types/IStatsData";
-import StatsCard from "../../../components/common/Card/StatsCard";
-import KPIList from "../../../../../webparts/goil/components/KPIList/KPIList";
+import Card from "../../../../components/common/Card/Card";
+import Button from "../../../../components/common/Button/Button";
+import { IStatsData } from "../../../../../../shared/types/IStatsData";
+import StatsCard from "../../../../components/common/Card/StatsCard";
+import KPIList from "../../../../../../webparts/goil/components/KPIList/KPIList";
 import { useNavigate } from "react-router-dom";
-import KPIs from "../../../../../shared/constant/kpis";
-import { IKPI } from "../../../../../shared/types/IKPI";
+import KPIs from "../../../../../../shared/constant/kpis";
+import { IKPI } from "../../../../../../shared/types/IKPI";
 
 const initialFilters = {
   department: "All Departments",
