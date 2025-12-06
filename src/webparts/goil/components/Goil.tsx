@@ -7,6 +7,7 @@ import { IKPIStats } from "./IKPIStats";
 import SideBar from "../../goil/layout/Sidebar/SideBar";
 import TopBar from "../../goil/layout/TopBar/TopBar";
 import Dashboard from "../../../webparts/goil/modules/Administrator/Dashboard/Dashboard";
+import ManagerDashboard from "../../../webparts/goil/modules/Manager/ManagerDashboard/ManagerDashboard";
 import KPIDashboard from "../../../webparts/goil/modules/Administrator/KPI/KPI Dashboard/KPIDashboard";
 import AllKPIs from "../../../webparts/goil/modules/Administrator/KPI/All KPIs/AllKPIs";
 import CreateKPI from "../../../webparts/goil/modules/Administrator/KPI/Create KPI/CreateKPI";
@@ -16,6 +17,7 @@ import UserManagement from "../../../webparts/goil/modules/Administrator/Adminis
 import DepartmentManagement from "../../../webparts/goil/modules/Administrator/Administration/Departments/DepartmentManagement";
 import Reports from "../../../webparts/goil/modules/Administrator/Administration/Reports & Analytics/Reports";
 import LoginDashboard from "../modules/Login/LoginDashboard";
+import EmpDashboard from "../../goil/modules/Employee/EmpDashboard/EmpDashboard";
 
 interface IGoilState {
   KPIs: IKPI[];
@@ -632,6 +634,7 @@ export default class Goil extends React.Component<IGoilProps, IGoilState> {
                     <div className={styles.contentArea}>
                       <Routes>
                         <Route path="/" element={<Dashboard />} />
+                        <Route path="/EmpDashboard" element={<EmpDashboard />} />
                         <Route
                           path="/kpi-dashboard"
                           element={<KPIDashboard />}
@@ -659,6 +662,13 @@ export default class Goil extends React.Component<IGoilProps, IGoilState> {
                         />
                         <Route path="reports" element={<Reports />} />
                         <Route path="*" element={<h2>Coming Soon</h2>} />
+
+                        {/* Manager section */}
+                        <Route
+                          path="/ManagerDashboard"
+                          element={<ManagerDashboard />}
+                        />
+
                       </Routes>
                     </div>
                   </main>
