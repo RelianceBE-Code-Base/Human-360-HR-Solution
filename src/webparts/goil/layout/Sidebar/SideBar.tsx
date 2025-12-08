@@ -136,7 +136,7 @@ const SideBar: React.FC = () => {
             <Icon iconName="PlayerSettings"></Icon>
             <span>Employee Dashboard</span>
           </NavLink>
-          <NavLink to="/department-management" className={getNavLinkClass}>
+          <NavLink to="/FeedbackCenter" className={getNavLinkClass}>
             <Icon iconName="EMI"></Icon>
             <span>Feedback</span>
           </NavLink>

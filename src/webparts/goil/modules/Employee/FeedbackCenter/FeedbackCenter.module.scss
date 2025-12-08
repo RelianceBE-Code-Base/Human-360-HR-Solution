@@ -1,0 +1,461 @@
+.feedbackCenter {
+  padding: 24px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  .header {
+    margin-bottom: 24px;
+
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      margin: 0 0 8px 0;
+      color: #323130;
+    }
+
+    p {
+      margin: 0;
+      color: #605e5c;
+      font-size: 14px;
+    }
+  }
+
+  .statsCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+
+    .statCard {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+
+      .statHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        font-size: 14px;
+        color: #605e5c;
+
+        .infoIcon {
+          font-size: 16px;
+          color: #8a8886;
+        }
+
+        .sendIcon {
+          font-size: 16px;
+          color: #00b7c3;
+        }
+
+        .export {
+          font-size: 14px;
+          color: #605e5c;
+          margin-right: 8px;
+        }
+
+        .downloadIcon {
+          font-size: 16px;
+          color: #0078d4;
+        }
+      }
+
+      .statNumber {
+        font-size: 32px;
+        font-weight: 600;
+        color: #323130;
+      }
+    }
+  }
+
+  .tabs {
+    display: flex;
+    gap: 32px;
+    border-bottom: 2px solid #edebe9;
+    margin-bottom: 24px;
+
+    .tab {
+      background: none;
+      border: none;
+      padding: 12px 0;
+      font-size: 14px;
+      color: #605e5c;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
+
+      &:hover {
+        color: #323130;
+      }
+
+      &.active {
+        color: #0078d4;
+        font-weight: 600;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background-color: #0078d4;
+        }
+      }
+    }
+  }
+
+  .tabContent {
+    background: white;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+
+    .description {
+      margin: 0 0 20px 0;
+      color: #605e5c;
+      font-size: 14px;
+    }
+
+    .searchBox {
+      margin-bottom: 24px;
+      max-width: 400px;
+    }
+  }
+
+  .requestsList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .requestCard {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      border: 1px solid #edebe9;
+      border-radius: 8px;
+      background: #fafafa;
+      transition: box-shadow 0.2s;
+
+      &:hover {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .requestInfo {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .avatar {
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-weight: 600;
+          font-size: 16px;
+        }
+
+        .details {
+          .name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #323130;
+            margin-bottom: 4px;
+          }
+
+          .role {
+            font-size: 14px;
+            color: #605e5c;
+          }
+        }
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .dueDate {
+          font-size: 14px;
+          font-weight: 500;
+          margin-right: 8px;
+        }
+
+        .dismissBtn {
+          border-color: #8a8886;
+          color: #323130;
+        }
+      }
+    }
+  }
+
+  .feedbackForm {
+    max-width: 800px;
+
+    .dropdown {
+      margin-bottom: 24px;
+    }
+
+    .feedbackTypes {
+      margin-bottom: 24px;
+
+      .label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #323130;
+        margin-bottom: 12px;
+      }
+
+      .typeButtons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+
+        .typeBtn {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 8px;
+          padding: 20px;
+          border: 2px solid #edebe9;
+          border-radius: 8px;
+          background: white;
+          cursor: pointer;
+          transition: all 0.2s;
+
+          i {
+            font-size: 24px;
+            color: #605e5c;
+          }
+
+          span {
+            font-size: 14px;
+            color: #323130;
+            font-weight: 500;
+          }
+
+          &:hover {
+            border-color: #0078d4;
+          }
+
+          &.active {
+            border-color: #0078d4;
+            background: #f3f9fd;
+
+            i {
+              color: #0078d4;
+            }
+          }
+        }
+      }
+    }
+
+    .ratingSection {
+      margin-bottom: 24px;
+
+      .label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #323130;
+        margin-bottom: 12px;
+      }
+    }
+
+    .skillsSection {
+      margin-bottom: 24px;
+
+      .label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #323130;
+        margin-bottom: 16px;
+      }
+
+      .skillSlider {
+        margin-bottom: 20px;
+
+        .skillHeader {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 8px;
+          font-size: 14px;
+
+          span:first-child {
+            color: #323130;
+          }
+
+          span:last-child {
+            color: #605e5c;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
+    .formActions {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid #edebe9;
+    }
+  }
+
+  .feedbackList {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .feedbackCard {
+      border: 1px solid #edebe9;
+      border-radius: 8px;
+      padding: 24px;
+      background: #fafafa;
+
+      .feedbackHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+
+        .feedbackInfo {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+
+          .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+          }
+
+          .name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #323130;
+            margin-bottom: 4px;
+          }
+
+          .date {
+            font-size: 14px;
+            color: #605e5c;
+          }
+        }
+      }
+
+      .feedbackSection {
+        margin-bottom: 20px;
+
+        h3 {
+          font-size: 16px;
+          font-weight: 600;
+          color: #323130;
+          margin: 0 0 12px 0;
+        }
+
+        p {
+          font-size: 14px;
+          color: #605e5c;
+          line-height: 1.6;
+          margin: 0;
+        }
+      }
+
+      .skillsAssessment {
+        h3 {
+          font-size: 16px;
+          font-weight: 600;
+          color: #323130;
+          margin: 0 0 16px 0;
+        }
+
+        .skillsGrid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 16px;
+
+          .skillItem {
+            .skillInfo {
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 8px;
+              font-size: 14px;
+
+              span:first-child {
+                color: #323130;
+              }
+
+              span:last-child {
+                color: #605e5c;
+                font-weight: 600;
+              }
+            }
+
+            .skillBar {
+              height: 8px;
+              background-color: #edebe9;
+              border-radius: 4px;
+              overflow: hidden;
+
+              .skillFill {
+                height: 100%;
+                background-color: #6264a7;
+                border-radius: 4px;
+                transition: width 0.3s ease;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .feedbackCenter {
+    padding: 16px;
+
+    .statsCards {
+      grid-template-columns: 1fr;
+    }
+
+    .tabs {
+      gap: 16px;
+      overflow-x: auto;
+    }
+
+    .requestCard {
+      flex-direction: column;
+      align-items: flex-start !important;
+      gap: 16px;
+
+      .actions {
+        width: 100%;
+        justify-content: flex-end;
+      }
+    }
+
+    .feedbackTypes .typeButtons {
+      grid-template-columns: 1fr;
+    }
+
+    .skillsGrid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+}
