@@ -140,11 +140,11 @@ const SideBar: React.FC = () => {
             <Icon iconName="EMI"></Icon>
             <span>Feedback</span>
           </NavLink>
-          <NavLink to="/reports" className={getNavLinkClass}>
+          <NavLink to="/PerformanceCycle" className={getNavLinkClass}>
             <Icon iconName="PowerBILogo16"></Icon>
             <span>Perfromance Review</span>
           </NavLink>
-          <NavLink to="/department-management" className={getNavLinkClass}>
+          <NavLink to="/GoalsObjectives" className={getNavLinkClass}>
             <Icon iconName="EMI"></Icon>
             <span>Goals</span>
           </NavLink>

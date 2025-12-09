@@ -19,6 +19,8 @@ import Reports from "../../../webparts/goil/modules/Administrator/Administration
 import LoginDashboard from "../modules/Login/LoginDashboard";
 import EmployeeDashboard from "../modules/Employee/EmployeeDashboard/EmployeeDashboard";
 import { FeedbackCenter } from "../modules/Employee/FeedbackCenter/FeedbackCenter";
+import PerformanceReview from "../modules/Employee/PerformanceCycle/PerformanceCycle";
+import GoalsObjectives from "../modules/Employee/Goals/GoalsObjectives";
 
 interface IGoilState {
   KPIs: IKPI[];
@@ -639,8 +641,19 @@ export default class Goil extends React.Component<IGoilProps, IGoilState> {
                         {/* Employee section */}
                         <Route path="/EmployeeDashboard" element={<EmployeeDashboard />} />
                         <Route path="/FeedbackCenter" element={<FeedbackCenter siteUrl={window.location.origin} />} />
-                    
-
+                        <Route path="/PerformanceCycle" element={<PerformanceReview description={this.props.description} appearance="compact" />} />
+                        <Route
+                          path="/GoalsObjectives"
+                          element={
+                            <GoalsObjectives
+                              description={this.props.description}
+                              isDarkTheme={this.props.isDarkTheme}
+                              environmentMessage={this.props.environmentMessage}
+                              hasTeamsContext={this.props.hasTeamsContext}
+                              userDisplayName={this.props.userDisplayName}
+                            />
+                          }
+                        />
                         <Route
                           path="/kpi-dashboard"
                           element={<KPIDashboard />}
