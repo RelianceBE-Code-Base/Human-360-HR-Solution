@@ -29,6 +29,7 @@
  */
 
 import * as React from "react";
+import styles from "./KPIDashboard.module.scss";
 import StatsCard from "../../../../components/common/Card/StatsCard";
 import { IStatsData } from "../../../../../../shared/types/IStatsData";
 import Card from "../../../../components/common/Card/Card";
@@ -197,7 +198,7 @@ const multiDatasetBarOptions = {
   scales: { y: { beginAtZero: true, max: 100 } },
 };
 
-const Dashboard: React.FC = () => {
+const KPIDashboard: React.FC = () => {
   const [allKpis, setAllKpis] = React.useState<IKPI[]>([]);
   const [filteredKpis, setFilteredKpis] = React.useState<IKPI[]>([]);
   const [filters, setFilters] = React.useState(initialFilters);
@@ -428,28 +429,28 @@ const Dashboard: React.FC = () => {
         ))}
       </div>
 
-      <div className="charts-grid">
+      <div className={styles.chartsGrid}>
         <Card title="KPI Status Distribution">
-          <div className="chart-container">
+          <div className={styles.chartContainer}>
             <Doughnut data={doughnutChartData} options={doughnutChartOptions} />
           </div>
         </Card>
 
         <Card title="Budget Utilization by Department">
-          <div className="chart-container">
+          <div className={styles.chartContainer}>
             <Bar data={budgetUtilChartData} options={budgetBarOptions} />
           </div>
-          <div className="custom-legend">
+          <div className={styles["custom-legend"]}>
             <span>
               <i
-                className="legend-dot"
+                className={styles["legend-dot"]}
                 style={{ backgroundColor: "#10b981" }}
               ></i>{" "}
               ≥90% Utilized
             </span>
             <span>
               <i
-                className="legend-dot"
+                className={styles["legend-dot"]}
                 style={{ backgroundColor: "#3b82f6" }}
               ></i>{" "}
               80-89% Utilized
@@ -505,4 +506,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default Dashboard;
+export default KPIDashboard;

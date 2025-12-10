@@ -30,6 +30,7 @@ import Card from "../../../../components/common/Card/Card";
 import Button from "../../../../components/common/Button/Button";
 import { classNames } from "../../../../../../shared/utils/classnames";
 import { useNavigate } from "react-router-dom";
+import FeedbackModal from "../../../../layout/FeedbackModal/FeedbackModal";
 
 const TargetsMetricsTab = () => (
   <div id="targetMetrics" className="tab-content active">
@@ -261,7 +262,6 @@ const ImplementationTab = () => (
     </div>
   </div>
 );
-
 const tabs = [
   { id: "basicInfo", label: "Basic Information", component: <BasicInfoTab /> },
   {
@@ -279,8 +279,15 @@ const tabs = [
 const createKPI: React.FC = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = React.useState(tabs[0].id);
+  const [showSuccessModal, setShowSuccessModal] = React.useState(false);
 
   const activeTabIndex = tabs.findIndex((tab) => tab.id === activeTab);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault(); // prevent actual form submission
+    // Service to save the KPI
+    setShowSuccessModal(true);
+  };
 
   const handleNext = () => {
     if (activeTabIndex < tabs.length - 1) {
@@ -311,7 +318,7 @@ const createKPI: React.FC = () => {
         </Button>
       </div>
       <Card title="">
-        <form action="" id="">
+        <form action="" id="" onSubmit={handleSubmit}>
           <div className="tabs">
             {tabs.map((tab) => (
               <button
@@ -368,6 +375,17 @@ const createKPI: React.FC = () => {
             </div>
           </div>
         </form>
+        {/* Success Modal */}
+        <FeedbackModal
+          visible={showSuccessModal}
+          onClose={() => {
+            setShowSuccessModal(false);
+            navigate("/all-kpis");
+          }}
+          title="KPI created successfully"
+          message="You can find the KPI on the “All KPIs” page."
+          buttonText="Go to All KPIs"
+        />
       </Card>
     </section>
   );

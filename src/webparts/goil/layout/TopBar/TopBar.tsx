@@ -24,14 +24,14 @@ const Nav: React.FC = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    navigate("/portal");
+    navigate("/");
   };
   return (
     <div className={styles.topBar}>
       <div className={styles.topBarLeft}>
-        <button id="mobileMenuBtn" className="btn btn-secondary btn-sm">
+        {/* <button id="mobileMenuBtn" className="btn btn-secondary btn-sm">
           <i className="fas fa-bars"></i>
-        </button>
+        </button> */}
         <div>
           <Breadcrumbs />
         </div>
@@ -51,7 +51,7 @@ const Nav: React.FC = () => {
           </div>
           <div className={styles.userInfo}>
             <div className={styles.userName} id="userName">
-              Admin User
+              John Doe
             </div>
             <div className={styles.userRole} id="userRole">
               Administrator
