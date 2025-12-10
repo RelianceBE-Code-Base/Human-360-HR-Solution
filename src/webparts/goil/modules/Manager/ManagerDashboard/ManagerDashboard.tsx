@@ -16,6 +16,7 @@ import {
 } from "chart.js";
 import { Line, Doughnut, Bar } from "react-chartjs-2";
 import { useNavigate } from "react-router-dom";
+import { Icon } from "@fluentui/react/lib/Icon";
 
 ChartJS.register(
   LineElement,
@@ -164,13 +165,55 @@ const ManagerDashboard: React.FC = () => {
       {/* Bottom row: 3 cards */}
       <div className={styles.bottomGrid}>
         <Card title="Team Summary">
-          <div className={styles.summaryGrid}>
-            <div>10<br /><span>Team Members</span></div>
-            <div>7<br /><span>Completed Self-Reviews</span></div>
-            <div>24<br /><span>Goals In Progress</span></div>
-            <div>3<br /><span>Overdue Feedback</span></div>
+          <div className={styles.summaryList}>
+
+            {/* Team Members */}
+            <div className={styles.summaryItem}>
+              <div className={styles.summaryIcon + " bg-blue-100 text-blue-600"}>
+                <Icon iconName="Group" />
+              </div>
+              <div>
+                <div className={styles.summaryValue}>10</div>
+                <div className={styles.summaryLabel}>Team Members</div>
+              </div>
+            </div>
+
+            {/* Completed Self-Reviews */}
+            <div className={styles.summaryItem}>
+              <div className={styles.summaryIcon + " bg-green-100 text-green-600"}>
+                <Icon iconName="CheckMark" />
+              </div>
+              <div>
+                <div className={styles.summaryValue}>7</div>
+                <div className={styles.summaryLabel}>Completed Self-Reviews</div>
+              </div>
+            </div>
+
+            {/* Goals In Progress */}
+            <div className={styles.summaryItem}>
+              <div className={styles.summaryIcon + " bg-yellow-100 text-yellow-600"}>
+                <Icon iconName="Bullseye" />
+              </div>
+              <div>
+                <div className={styles.summaryValue}>24</div>
+                <div className={styles.summaryLabel}>Goals In Progress</div>
+              </div>
+            </div>
+
+            {/* Overdue Feedback */}
+            <div className={styles.summaryItem}>
+              <div className={styles.summaryIcon + " bg-red-100 text-red-600"}>
+                <Icon iconName="Warning" />
+              </div>
+              <div>
+                <div className={styles.summaryValue}>3</div>
+                <div className={styles.summaryLabel}>Overdue Feedback</div>
+              </div>
+            </div>
+
           </div>
         </Card>
+
 
         <Card title="Competency Distribution">
           <div className={styles.chartContainer}>
