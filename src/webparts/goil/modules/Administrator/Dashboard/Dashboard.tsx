@@ -142,6 +142,45 @@ const initialStats: IStatsData[] = [
   },
 ];
 
+const dStats: IStatsData[] = [
+  {
+    label: "Total Users",
+    icon: "Group",
+    value: 0,
+    iconColour: "orange",
+    change: { description: "Active & Inactive", type: "neutral", icon: "" },
+  },
+  {
+    label: "Active KPIs",
+    icon: "BullseyeTarget",
+    value: 2,
+    iconColour: "success",
+    change: {
+      description: "Across all departments",
+      type: "neutral",
+      icon: "",
+    },
+  },
+  {
+    label: "Pending Appraisals",
+    icon: "WorkItem",
+    value: 0,
+    iconColour: "warning",
+    change: {
+      description: "Awaiting completion",
+      type: "neutral",
+      icon: "SkypeCircleClock",
+    },
+  },
+  {
+    label: "Departments",
+    icon: "EMI",
+    value: 0,
+    iconColour: "info",
+    change: { description: "With active KPIs", type: "neutral", icon: "" },
+  },
+];
+
 const getProgressColor = (progress: number) => {
   if (progress < 50) return "#F97316"; // Orange
   if (progress < 90) return "#F59E0B"; // Amber
@@ -344,7 +383,8 @@ const Dashboard: React.FC = () => {
       </p>
 
       <div className="stats-grid">
-        {statsData.map((stat, index) => (
+        {console.log("stats:", statsData)}
+        {dStats.map((stat, index) => (
           <StatsCard
             key={index}
             icon={stat.icon}

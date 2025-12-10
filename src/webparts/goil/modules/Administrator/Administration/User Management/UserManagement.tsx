@@ -23,6 +23,7 @@ import Card from "../../../../components/common/Card/Card";
 import Button from "../../../../components/common/Button/Button";
 import { IStatsData } from "../../../../../../shared/types/IStatsData";
 import StatsCard from "../../../../components/common/Card/StatsCard";
+import { useNavigate } from "react-router-dom";
 
 const statsCards: IStatsData[] = [
   {
@@ -135,6 +136,7 @@ const users = [
 ];
 
 const UserManagement: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <section>
       <div className="d-flex justify-content-between align-items-center mb-3">
@@ -145,8 +147,8 @@ const UserManagement: React.FC = () => {
           </p>
         </div>
 
-        <Button>
-          <Icon iconName="add" />
+        <Button onClick={() => navigate("/add-user")}>
+          <Icon iconName="Add" />
           Add User
         </Button>
       </div>

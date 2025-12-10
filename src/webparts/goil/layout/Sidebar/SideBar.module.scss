@@ -1,14 +1,8 @@
 .sidebar {
   position: sticky;
-
-  // top: 90px; /* ADDED this line */
-
   /* --- SIZING FIX --- */
-  width: 260px;
-  /* CHANGED height to account for the SharePoint header */
-  // height: calc(100vh - 48px);
-
-  width: 260px;
+  // width: 260px;
+  width: 240px;
   background-color: var(--dark-gray);
   color: var(--white);
   padding: 0;
