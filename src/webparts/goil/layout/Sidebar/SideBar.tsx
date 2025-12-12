@@ -107,22 +107,22 @@ const SideBar: React.FC = () => {
               <Icon iconName="ViewDashboard" />
               <span>Manager Dashboard</span>
             </NavLink>
-            <NavLink to="/" className={getNavLinkClass} end>
-              <Icon iconName="AddToShoppingList" />
-              <span>Feedback</span>
+            <NavLink to="/TeamManagement" className={getNavLinkClass} end>
+              <Icon iconName="AddToShoppingList"></Icon>
+              <span>Team Management</span>
             </NavLink>
             <NavLink to="/" className={getNavLinkClass} end>
-              <Icon iconName="Calendar" />
-              <span>Performance Review</span>
+            <Icon iconName="Calendar"></Icon>
+            <span>Performance Review</span>
             </NavLink>
             <NavLink to="/" className={getNavLinkClass} end>
-              <Icon iconName="Chart" />
-              <span>Goals</span>
+              <Icon iconName="Chart"></Icon>
+              <span>Create KPI</span>
             </NavLink>
-            <NavLink to="/" className={getNavLinkClass} end>
-              <Icon iconName="PowerBILogo16" />
+            {/* <NavLink to="/" className={getNavLinkClass} end>
+              <Icon iconName="PowerBILogo16"></Icon>
               <span>Report and Analytics</span>
-            </NavLink>
+            </NavLink> */}
           </div>
         </>
       );
