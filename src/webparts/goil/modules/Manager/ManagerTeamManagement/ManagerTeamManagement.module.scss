@@ -1,0 +1,770 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 1rem;
+}
+
+.tabButton {
+  padding: 0.55rem 1.1rem;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #374151;
+  transition: 0.2s ease;
+
+  &:hover {
+    background: #f3f4f6;
+  }
+}
+
+.tabIcon {
+  font-size: 1.1rem;
+}
+
+.activeTab {
+  background: #f97316;
+  color: #fff !important;
+
+  &:hover {
+    background: #ea580c;
+  }
+}
+
+/* Metric cards */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.metricCard {
+  position: relative;
+  padding: 1rem;
+  min-height: 80px;
+  // background: rgba(37, 99, 235, 0.15);
+}
+// .metricCard:nth-child(1) .metricIcon {
+//   background: #2563eb; /* Blue */
+// }
+
+// .metricCard:nth-child(2) .metricIcon {
+//   background: #dc2626; /* Red tint for Pending Requests */
+// }
+
+// .metricCard:nth-child(3) .metricIcon {
+//   background: #16a34a;; /* Green tint for Completed Requests */
+// }
+
+.metricValue {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.metricLabel {
+  font-size: 0.95rem;
+  color: #374151;
+  margin-top: 0.25rem;
+}
+
+.metricIcon {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 20px;
+  color: #9ca3af;
+  font-size: 28px;
+  padding: 10px;
+  border-radius: 50%;
+  
+}
+
+/* Card Header (Title + Button) */
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+}
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  gap: 0.5rem;
+  color: #1f2937;
+}
+
+.titleIcon {
+  color: #7c3aed;
+  font-size: 1.3rem;
+}
+
+/* Request Feedback Button */
+.requestFeedbackBtn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 0.55rem 1.1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 500;
+
+  &:hover {
+    background: #1d4ed8;
+  }
+}
+
+/* Table */
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead {
+    background: #f9fafb;
+  }
+
+  th {
+    text-align: left;
+    padding: 0.75rem;
+    color: #4b5563;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+
+  td {
+    padding: 0.75rem;
+    border-top: 1px solid #e5e7eb;
+  }
+}
+
+/* Member cell */
+.memberCell {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.initials {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.pending {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+/* Action buttons */
+.actionBtn {
+  background: transparent;
+  color: #2563eb;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.actionBtn.remind {
+  background: #fff7ed;
+  color: #ea580c;
+  font-weight: 600;
+}
+
+.remind {
+  color: #dc2626 !important;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+
+   button {
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    background: white;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+}
+
+
+.pageBtn {
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    background: #e5e7eb;
+  }
+}
+
+.pageIndicator {
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+/* Modal */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+
+.modal {
+  background: #fff;
+  width: 55%;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.25);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+
+  h2 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+}
+
+.closeBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.modalBody {
+  margin-top: 1rem;
+}
+
+.formRow {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.formCard {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.formControl {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+  }
+
+  select {
+    padding: 0.6rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+  }
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.cancelBtn {
+  background: #e5e7eb;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.sendBtn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &:hover {
+    background: #1d4ed8;
+  }
+
+  .cancelBtn, .sendBtn {
+  padding: 15px 22px;
+  border-radius: 6px;
+  font-size: 15px;
+  
+}
+}
+/* Placeholder content for tabs without full UI yet */
+.placeholderContent {
+  padding: 2rem;
+  text-align: center;
+  font-size: 1rem;
+  color: #6b7280; /* Gray-500 */
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+/* GOAL TRACKING STYLES (FIRST IMAGE) */
+
+.goalWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.goalMetricsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.goalMetricCard {
+  padding: 1.2rem;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.goalMetricValue {
+  margin-top: 0.5rem;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.goalHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.goalHeader {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.createObjectiveBtn {
+  background: #f97316;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+
+  &:hover {
+    background: #ea580c;
+  }
+}
+
+.goalTable {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    text-align: left;
+    background: #f9fafb;
+    padding: 0.8rem;
+    color: #4b5563;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  td {
+    padding: 0.9rem;
+    border-top: 1px solid #e5e7eb;
+    font-size: 0.95rem;
+  }
+}
+
+.statusDone {
+  background: #d1fae5;
+  color: #059669;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.statusProgress {
+  background: #e0f2fe;
+  color: #0284c7;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.statusOverdue {
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+/* ----------------------------- */
+/* GOAL TRACKING METRICS */
+/* ----------------------------- */
+
+.goalMetricsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.goalMetricCard {
+  position: relative;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.goalMetricIcon {
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 0.4rem;
+}
+
+.goalMetricLabel {
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.goalMetricValue {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #111827;
+  margin-top: 0.2rem;
+}
+
+/* ----------------------------- */
+/* GOAL TABLE & HEADER */
+/* ----------------------------- */
+
+.goalHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.goalHeader {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.createObjectiveBtn {
+  background: #f97316;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+
+  &:hover {
+    background: #ea580c;
+  }
+}
+
+.goalTable {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    background: #f9fafb;
+    padding: 0.8rem;
+    color: #4b5563;
+    font-weight: 600;
+  }
+
+  td {
+    padding: 0.85rem;
+    border-top: 1px solid #e5e7eb;
+  }
+}
+
+/* Status tags */
+.statusDone {
+  background: #d1fae5;
+  color: #059669;
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+.statusProgress {
+  background: #e0f2fe;
+  color: #0284c7;
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+.statusOverdue {
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+.objectiveModal {
+  background: #fff;
+  width: 90%;
+  max-width: 1100px;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.25);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.objectiveBody {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.objectiveTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+
+  th {
+    background: #f9fafb;
+    padding: 0.8rem;
+    color: #4b5563;
+    font-weight: 600;
+  }
+
+  td {
+    padding: 0.8rem;
+    border-top: 1px solid #e5e7eb;
+  }
+}
+
+.goalAddRow {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.addGoalBtn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 0.45rem 1rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  cursor: pointer;
+}
+
+.cancelInline {
+  background: #e5e7eb;
+  border: none;
+  padding: 0.45rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+textarea {
+  padding: 0.7rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+.fullPageContainer {
+  width: 100%;
+  height: 100%;
+  min-height: calc(100vh - 80px); /* subtract top nav height */
+  background: #f8f9fb;
+  padding: 20px 30px;
+
+  /* THIS is the fix — ensures it stays inside content area */
+  box-sizing: border-box;
+  overflow-y: auto;
+  
+}
+
+.fullPageContent {
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+
+  /* prevents it from shrinking */
+  box-sizing: border-box;
+}
+.pageWrapper {
+  margin-left: 240px;    /* sidebar width */
+  margin-top: 70px;      /* top nav height */
+  padding: 20px 30px;
+  min-height: calc(100vh - 70px);
+  background: #f5f7fa;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+.pageContent {
+  width: 100%;
+  max-width: 100%;
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.fullPageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.fullPageBody {
+  margin-top: 25px;
+}
+
+.fullPageFooter {
+  margin-top: 25px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+.modalHeaderFull {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.modalBodyFull {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 0;
+}
+
+.modalFooterFull {
+ padding-top: 20px;
+  border-top: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+// .createPageWrapper {
+//   background: #fff;
+//   padding: 25px;
+//   border-radius: 12px;
+//   width: 100%;
+//   box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+// }
+
+// .createPageHeader {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   margin-bottom: 20px;
+//   border-bottom: 1px solid #ddd;
+//   padding-bottom: 15px;
+// }
+
+// .createPageBody {
+//   margin-top: 20px;
+// }
+
+// .createPageFooter {
+//   margin-top: 20px;
+//   padding-top: 20px;
+//   border-top: 1px solid #ddd;
+//   display: flex;
+//   justify-content: flex-end;
+//   gap: 10px;
+// }
