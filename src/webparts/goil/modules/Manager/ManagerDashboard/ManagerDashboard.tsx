@@ -16,6 +16,7 @@ import {
 } from "chart.js";
 import { Line, Doughnut, Bar } from "react-chartjs-2";
 import { useNavigate } from "react-router-dom";
+import { Icon } from "@fluentui/react/lib/Icon";
 
 ChartJS.register(
   LineElement,
@@ -41,7 +42,11 @@ const initialStats: IStatsData[] = [
     icon: "BullseyeTarget",
     value: 4.2,
     iconColour: "success",
-    change: { description: "-0.1 from last quarter", type: "negative", icon: "" },
+    change: {
+      description: "-0.1 from last quarter",
+      type: "negative",
+      icon: "",
+    },
   },
   {
     label: "Goals on Track",
@@ -82,7 +87,14 @@ const quarterlyTrendData = {
 };
 
 const competencyDistributionData = {
-  labels: ["Leadership", "Comms", "Teamwork", "Problem-Solving", "Innovation", "Adaptability"],
+  labels: [
+    "Leadership",
+    "Comms",
+    "Teamwork",
+    "Problem-Solving",
+    "Innovation",
+    "Adaptability",
+  ],
   datasets: [
     {
       label: "Competency",
@@ -124,7 +136,10 @@ const ManagerDashboard: React.FC = () => {
       <div className={styles.topGrid}>
         <Card title="Quarterly Performance Trend">
           <div className={styles.cardActions}>
-            <button onClick={() => navigate("/all-kpis")} className={styles.viewAllBtn}>
+            <button
+              onClick={() => navigate("/all-kpis")}
+              className={styles.viewAllBtn}
+            >
               View All
             </button>
           </div>
@@ -133,6 +148,7 @@ const ManagerDashboard: React.FC = () => {
               data={quarterlyTrendData}
               options={{
                 responsive: true,
+                maintainAspectRatio: false,
                 plugins: { legend: { display: false } },
                 scales: { y: { beginAtZero: true } },
               }}
@@ -164,11 +180,60 @@ const ManagerDashboard: React.FC = () => {
       {/* Bottom row: 3 cards */}
       <div className={styles.bottomGrid}>
         <Card title="Team Summary">
-          <div className={styles.summaryGrid}>
-            <div>10<br /><span>Team Members</span></div>
-            <div>7<br /><span>Completed Self-Reviews</span></div>
-            <div>24<br /><span>Goals In Progress</span></div>
-            <div>3<br /><span>Overdue Feedback</span></div>
+          <div className={styles.summaryList}>
+            {/* Team Members */}
+            <div className={styles.summaryItem}>
+              <div
+                className={styles.summaryIcon + " bg-blue-100 text-blue-600"}
+              >
+                <Icon iconName="Group" />
+              </div>
+              <div>
+                <div className={styles.summaryValue}>10</div>
+                <div className={styles.summaryLabel}>Team Members</div>
+              </div>
+            </div>
+
+            {/* Completed Self-Reviews */}
+            <div className={styles.summaryItem}>
+              <div
+                className={styles.summaryIcon + " bg-green-100 text-green-600"}
+              >
+                <Icon iconName="CheckMark" />
+              </div>
+              <div>
+                <div className={styles.summaryValue}>7</div>
+                <div className={styles.summaryLabel}>
+                  Completed Self-Reviews
+                </div>
+              </div>
+            </div>
+
+            {/* Goals In Progress */}
+            <div className={styles.summaryItem}>
+              <div
+                className={
+                  styles.summaryIcon + " bg-yellow-100 text-yellow-600"
+                }
+              >
+                <Icon iconName="Bullseye" />
+              </div>
+              <div>
+                <div className={styles.summaryValue}>24</div>
+                <div className={styles.summaryLabel}>Goals In Progress</div>
+              </div>
+            </div>
+
+            {/* Overdue Feedback */}
+            <div className={styles.summaryItem}>
+              <div className={styles.summaryIcon + " bg-red-100 text-red-600"}>
+                <Icon iconName="Warning" />
+              </div>
+              <div>
+                <div className={styles.summaryValue}>3</div>
+                <div className={styles.summaryLabel}>Overdue Feedback</div>
+              </div>
+            </div>
           </div>
         </Card>
 
@@ -178,6 +243,7 @@ const ManagerDashboard: React.FC = () => {
               data={competencyDistributionData}
               options={{
                 responsive: true,
+                maintainAspectRatio: false,
                 plugins: { legend: { display: false } },
                 scales: { y: { beginAtZero: true } },
               }}
@@ -191,6 +257,7 @@ const ManagerDashboard: React.FC = () => {
               data={appraisalStatusData}
               options={{
                 responsive: true,
+                maintainAspectRatio: false,
                 plugins: { legend: { position: "bottom" } },
                 cutout: "60%",
               }}

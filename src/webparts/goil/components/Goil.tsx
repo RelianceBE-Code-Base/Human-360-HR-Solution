@@ -19,7 +19,6 @@ import TeamPerformance from "../../../webparts/goil/modules/Administrator/Perfor
 import UserManagement from "../../../webparts/goil/modules/Administrator/Administration/User Management/UserManagement";
 import DepartmentManagement from "../../../webparts/goil/modules/Administrator/Administration/Departments/DepartmentManagement";
 import Reports from "../../../webparts/goil/modules/Administrator/Administration/Reports & Analytics/Reports";
-import LoginDashboard from "../modules/Login/LoginDashboard";
 import EmployeeDashboard from "../modules/Employee/EmployeeDashboard/EmployeeDashboard";
 import { FeedbackCenter } from "../modules/Employee/FeedbackCenter/FeedbackCenter";
 import PerformanceReview from "../modules/Employee/PerformanceCycle/PerformanceCycle";
@@ -28,7 +27,7 @@ import SystemConfigurations from "../modules/Administrator/Settings Configuratio
 // Manager Components
 import ManagerDashboard from "../../../webparts/goil/modules/Manager/ManagerDashboard/ManagerDashboard";
 // Employee Components
-import EmpDashboard from "../../goil/modules/Employee/EmpDashboard/EmpDashboard";
+// import EmpDashboard from "../../goil/modules/Employee/EmpDashboard/EmpDashboard";
 import CreatePerformanceCycle from "../modules/Administrator/Performance/Perfromance Cycles/Create Performance Cycles/CreatePerformanceCycle";
 import AddUserForm from "../modules/Administrator/Administration/User Management/AddNewUser/AddNewUser";
 //BDE Components
@@ -652,9 +651,25 @@ export default class Goil extends React.Component<IGoilProps, IGoilState> {
                         <Route path="/" element={<Dashboard />} />
 
                         {/* Employee section */}
-                        <Route path="/EmployeeDashboard" element={<EmployeeDashboard />} />
-                        <Route path="/FeedbackCenter" element={<FeedbackCenter siteUrl={window.location.origin} />} />
-                        <Route path="/PerformanceCycle" element={<PerformanceReview description={this.props.description} appearance="compact" />} />
+                        <Route
+                          path="/EmployeeDashboard"
+                          element={<EmployeeDashboard />}
+                        />
+                        <Route
+                          path="/FeedbackCenter"
+                          element={
+                            <FeedbackCenter siteUrl={window.location.origin} />
+                          }
+                        />
+                        <Route
+                          path="/PerformanceCycle"
+                          element={
+                            <PerformanceReview
+                              description={this.props.description}
+                              appearance="compact"
+                            />
+                          }
+                        />
                         <Route
                           path="/GoalsObjectives"
                           element={
@@ -715,10 +730,10 @@ export default class Goil extends React.Component<IGoilProps, IGoilState> {
                           element={<ManagerDashboard />}
                         />
                         {/* Employee section */}
-                        <Route
+                        {/* <Route
                           path="/EmpDashboard"
                           element={<EmpDashboard />}
-                        />
+                        /> */}
                         {/* BDC section */}
                         <Route
                           path="/BDEDashboard"
