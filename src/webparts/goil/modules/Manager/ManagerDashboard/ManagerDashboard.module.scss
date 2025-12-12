@@ -1,5 +1,9 @@
-.textMuted { color: var(--gray-600); }
-.mb3 { margin-bottom: 1rem; }
+.textMuted {
+  color: var(--gray-600);
+}
+.mb3 {
+  margin-bottom: 1rem;
+}
 
 .statsGrid {
   display: grid;
@@ -29,19 +33,43 @@
 
 .bottomGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  // grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 2fr 1fr 1fr !important;
   gap: 1rem;
+  align-items: stretch;
 
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
   }
 }
 
+.bottomGrid > :first-child {
+  width: 100% !important;
+  flex: 1 !important;
+}
+
 .chartContainer {
   position: relative;
-  height: 350px;
+  height: auto !important; /* auto-size */
+  min-height: 0 !important; /* optional safety */
   margin: 1rem 0;
 }
+
+/* Cap chart height so it never bloats */
+.chartContainer canvas {
+  max-height: 220px !important;
+}
+
+/* Fix bar/doughnut/line charts collapsing */
+.chartContainer > div {
+  height: auto !important;
+}
+
+// .chartContainer {
+//   position: relative;
+//   height: auto;
+//   margin: 1rem 0;
+// }
 
 .listContainer {
   display: flex;
@@ -96,20 +124,20 @@
   &:hover {
     color: #1d4ed8;
   }
+}
 
-  .summaryList {
+/* FIXED — moved outside of .viewAllBtn */
+.summaryList {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
   padding: 0.5rem 0;
-  border: 1px solid red;
 }
 
 .summaryItem {
   display: flex;
   align-items: center;
   gap: 1rem;
-  
 }
 
 .summaryIcon {
@@ -132,7 +160,6 @@
   font-size: 0.85rem;
 }
 
-}
 /* PAGE CONTAINER OUTSIDE TOP NAV + SIDEBAR */
 .pageWrapper {
   margin-left: 240px;    /* sidebar width */
