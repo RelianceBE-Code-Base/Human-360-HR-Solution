@@ -38,7 +38,7 @@ const LoginDashboard: React.FC = () => {
     // Here is where you would trigger navigation or MSAL login
     // e.g., navigate('/dashboard');
     if (role === "admin") {
-      navigate("/");
+      navigate("/AdminDashboard");
     }
   };
 

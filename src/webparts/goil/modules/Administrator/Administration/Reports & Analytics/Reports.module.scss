@@ -1,5 +1,4 @@
-/* Styling for the custom legend below the chart */
-.custom-legend {
+.customLegend {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,16 +6,17 @@
   margin-top: 1rem;
   font-size: 0.875rem;
   color: #6c757d;
+
+  span {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem; /* Space between dot and text */
+  }
 }
 
-.custom-legend span {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem; /* Space between dot and text */
-}
 
 /* The colored circle for the legend */
-.legend-dot {
+.legendDot {
   display: inline-block;
   width: 12px;
   height: 12px;
@@ -32,10 +32,4 @@
 
 .chartContainer {
   height: 300px;
-}
-
-@media (max-width: 992px) {
-  .chartsGrid {
-    grid-template-columns: 1fr;
-  }
 }

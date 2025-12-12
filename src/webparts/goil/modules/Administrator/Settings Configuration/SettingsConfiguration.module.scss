@@ -1,0 +1,206 @@
+// SystemConfigurations.module.scss
+
+.container {
+  background-color: #fff;
+  min-height: 100vh;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Layout Grid: Replaces Bootstrap col-md-7 / col-md-5 */
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 1fr; /* Default mobile stack */
+  gap: 2rem;
+  margin-bottom: 2rem;
+
+  @media (min-width: 992px) {
+    grid-template-columns: 1.5fr 1fr; /* 60% / 40% split for desktop */
+  }
+}
+
+.sectionHeader {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  border-bottom: 1px solid #f3f4f6;
+  padding-bottom: 0.5rem;
+}
+
+/* Form Grid for internal fields (e.g., Company Info) */
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Category List Styling */
+.categoryListContainer {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9fafb;
+}
+
+.categoryItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #4b5563;
+  background-color: #fff;
+  margin-bottom: 5px;
+  border-radius: 4px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  i {
+    cursor: pointer;
+    color: #ef4444;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+/* Preferences & Checkboxes */
+.preferencesContainer {
+  padding: 20px;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  color: #374151;
+  font-size: 0.95rem;
+
+  input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--primary-orange, #ea580c);
+  }
+}
+
+/* Email Logo Upload Area */
+.logoUploadArea {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  
+  .logoPlaceholder {
+    width: 60px;
+    height: 60px;
+    background-color: #f3f4f6;
+    border-radius: 6px;
+    border: 1px dashed #d1d5db;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    i {
+      color: #9ca3af;
+      font-size: 24px;
+    }
+  }
+}
+
+/* Email Templates List */
+.templateList {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0 15px;
+  background-color: #fff;
+}
+
+.templateItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid #f3f4f6;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  span:first-child {
+    color: #374151;
+    font-weight: 500;
+  }
+
+  .editLink {
+    color: #3b82f6;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Notifications List */
+.notificationList {
+  border-top: 1px solid #e5e7eb;
+  margin-top: 1rem;
+}
+
+.notificationRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 0;
+  border-bottom: 1px solid #f3f4f6;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .notificationTitle {
+    font-weight: 600;
+    color: #374151;
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+  
+  .notificationDesc {
+    color: #6b7280;
+    font-size: 0.85rem;
+  }
+
+  // Reuse checkbox styling
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--primary-orange, #ea580c);
+  }
+}
+
+.footerActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 20px;
+  margin-top: 20px;
+}

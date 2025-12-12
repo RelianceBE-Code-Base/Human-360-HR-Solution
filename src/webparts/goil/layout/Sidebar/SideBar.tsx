@@ -36,7 +36,7 @@ const SideBar: React.FC = () => {
       <nav className={styles.sidebarNav}>
         <div className={styles.navSection}>
           <div className={styles.navSectionTitle}>Main</div>
-          <NavLink to="/" className={getNavLinkClass} end>
+          <NavLink to="/AdminDashboard" className={getNavLinkClass} end>
             <Icon iconName="ViewDashboard"></Icon>
             <span>Dashboard</span>
           </NavLink>
@@ -62,6 +62,10 @@ const SideBar: React.FC = () => {
             <Icon iconName="Calendar"></Icon>
             <span>Performance Cycles</span>
           </NavLink>
+          <NavLink to="/performance-cycles/create" className={getNavLinkClass}>
+            <Icon iconName="CircleAdditionSolid"></Icon>
+            <span>Create Performance Cycle</span>
+          </NavLink>
           <NavLink to="/team-performance" className={getNavLinkClass}>
             <Icon iconName="Group"></Icon>
             <span>Team Performance</span>
@@ -81,9 +85,13 @@ const SideBar: React.FC = () => {
             <Icon iconName="PowerBILogo16"></Icon>
             <span>Reports & Analytics</span>
           </NavLink>
+          <NavLink to="/settings" className={getNavLinkClass}>
+            <Icon iconName="Settings"></Icon>
+            <span>Settings</span>
+          </NavLink>
         </div>
 
-          {/* /*Manager sidenav Section*/ }
+        {/* /*Manager sidenav Section*/}
         <div className={styles.navSection}>
           <div className={styles.navSectionTitle}>Manager Section</div>
           <NavLink to="/ManagerDashboard" className={getNavLinkClass} end>
@@ -108,28 +116,8 @@ const SideBar: React.FC = () => {
           </NavLink>
         </div>
 
-        <div className={styles.navSection}>
-          <div className={styles.navSectionTitle}>Management Module</div>
-          <NavLink to="/user-management" className={getNavLinkClass}>
-            <Icon iconName="ViewDashboard"></Icon>
-            <span>Dashboard</span>
-          </NavLink>
-          <NavLink to="/department-management" className={getNavLinkClass}>
-            <Icon iconName="Group"></Icon>
-            <span>Team Management</span>
-          </NavLink>
-          <NavLink to="/reports" className={getNavLinkClass}>
-            <Icon iconName="AccessibiltyChecker"></Icon>
-            <span>Performance Review</span>
-          </NavLink>
-          <NavLink to="/reports" className={getNavLinkClass}>
-            <Icon iconName="CircleAdditionSolid"></Icon>
-            <span>Create KPI</span>
-          </NavLink>
-        </div> 
-
         {/* User side bar view */}
-       {/*Employee Dashboard*/}
+        {/*Employee Dashboard*/}
         <div className={styles.navSection}>
           <div className={styles.navSectionTitle}>Employee Dashboard</div>
           <NavLink to="/EmployeeDashboard" className={getNavLinkClass}>
@@ -147,6 +135,30 @@ const SideBar: React.FC = () => {
           <NavLink to="/GoalsObjectives" className={getNavLinkClass}>
             <Icon iconName="EMI"></Icon>
             <span>Goals</span>
+          </NavLink>
+          <NavLink to="/reports" className={getNavLinkClass}>
+            <Icon iconName="PowerBILogo16"></Icon>
+            <span>Reports & Analytics</span>
+          </NavLink>
+        </div>
+        {/* BDE side bar view */}
+        <div className={styles.navSection}>
+          <div className={styles.navSectionTitle}>BDC Dashboard</div>
+          <NavLink to="/BDEDashboard" className={getNavLinkClass}>
+            <Icon iconName="ViewDashboard"></Icon>
+            <span>BDC Dashboard</span>
+          </NavLink>
+          <NavLink to="/approval-queue" className={getNavLinkClass}>
+            <Icon iconName="CompletedSolid"></Icon>
+            <span>Approval Queue</span>
+          </NavLink>
+          <NavLink to="/kpi-dashboard" className={getNavLinkClass}>
+            <Icon iconName="Chart"></Icon>
+            <span>KPI Dashboard</span>
+          </NavLink>
+          <NavLink to="/all-kpis" className={getNavLinkClass}>
+            <Icon iconName="TaskList"></Icon>
+            <span>All KPIs</span>
           </NavLink>
           <NavLink to="/reports" className={getNavLinkClass}>
             <Icon iconName="PowerBILogo16"></Icon>

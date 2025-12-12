@@ -4,10 +4,13 @@ import type { IGoilProps } from "./IGoilProps";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { IKPI } from "../../../shared/types/IKPI";
 import { IKPIStats } from "./IKPIStats";
+// Shared Components
 import SideBar from "../../goil/layout/Sidebar/SideBar";
 import TopBar from "../../goil/layout/TopBar/TopBar";
+// Common Components
+import LoginDashboard from "../modules/Login/LoginDashboard";
+// Administrator Components
 import Dashboard from "../../../webparts/goil/modules/Administrator/Dashboard/Dashboard";
-import ManagerDashboard from "../../../webparts/goil/modules/Manager/ManagerDashboard/ManagerDashboard";
 import KPIDashboard from "../../../webparts/goil/modules/Administrator/KPI/KPI Dashboard/KPIDashboard";
 import AllKPIs from "../../../webparts/goil/modules/Administrator/KPI/All KPIs/AllKPIs";
 import CreateKPI from "../../../webparts/goil/modules/Administrator/KPI/Create KPI/CreateKPI";
@@ -21,6 +24,16 @@ import EmployeeDashboard from "../modules/Employee/EmployeeDashboard/EmployeeDas
 import { FeedbackCenter } from "../modules/Employee/FeedbackCenter/FeedbackCenter";
 import PerformanceReview from "../modules/Employee/PerformanceCycle/PerformanceCycle";
 import GoalsObjectives from "../modules/Employee/Goals/GoalsObjectives";
+import SystemConfigurations from "../modules/Administrator/Settings Configuration/SettingsConfiguration";
+// Manager Components
+import ManagerDashboard from "../../../webparts/goil/modules/Manager/ManagerDashboard/ManagerDashboard";
+// Employee Components
+import EmpDashboard from "../../goil/modules/Employee/EmpDashboard/EmpDashboard";
+import CreatePerformanceCycle from "../modules/Administrator/Performance/Perfromance Cycles/Create Performance Cycles/CreatePerformanceCycle";
+import AddUserForm from "../modules/Administrator/Administration/User Management/AddNewUser/AddNewUser";
+//BDE Components
+import BDEDashboard from "../modules/BDE/BDEDashboard/BDEDashboard";
+import ApprovalQueue from "../modules/BDE/ApprovalQueue/ApprovalQueue";
 
 interface IGoilState {
   KPIs: IKPI[];
@@ -619,7 +632,7 @@ export default class Goil extends React.Component<IGoilProps, IGoilState> {
     return (
       <Router basename="/">
         <Routes>
-          <Route path="/portal" element={<LoginDashboard />} />
+          <Route path="/" element={<LoginDashboard />} />
           <Route
             path="/*"
             element={
@@ -654,6 +667,11 @@ export default class Goil extends React.Component<IGoilProps, IGoilState> {
                             />
                           }
                         />
+                        {/* Common section */}
+                        <Route path="/" element={<LoginDashboard />} />
+
+                        {/* Administrator section */}
+                        <Route path="/AdminDashboard" element={<Dashboard />} />
                         <Route
                           path="/kpi-dashboard"
                           element={<KPIDashboard />}
@@ -672,14 +690,23 @@ export default class Goil extends React.Component<IGoilProps, IGoilState> {
                           element={<TeamPerformance />}
                         />
                         <Route
+                          path="/performance-cycles/create"
+                          element={<CreatePerformanceCycle />}
+                        />
+                        <Route
                           path="/user-management"
                           element={<UserManagement />}
                         />
+                        <Route path="/add-user" element={<AddUserForm />} />
                         <Route
                           path="/department-management"
                           element={<DepartmentManagement />}
                         />
                         <Route path="reports" element={<Reports />} />
+                        <Route
+                          path="settings"
+                          element={<SystemConfigurations />}
+                        />
                         <Route path="*" element={<h2>Coming Soon</h2>} />
 
                         {/* Manager section */}
@@ -687,7 +714,20 @@ export default class Goil extends React.Component<IGoilProps, IGoilState> {
                           path="/ManagerDashboard"
                           element={<ManagerDashboard />}
                         />
-
+                        {/* Employee section */}
+                        <Route
+                          path="/EmpDashboard"
+                          element={<EmpDashboard />}
+                        />
+                        {/* BDC section */}
+                        <Route
+                          path="/BDEDashboard"
+                          element={<BDEDashboard />}
+                        />
+                        <Route
+                          path="/approval-queue"
+                          element={<ApprovalQueue />}
+                        />
                       </Routes>
                     </div>
                   </main>
