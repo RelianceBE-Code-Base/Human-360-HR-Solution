@@ -28,17 +28,45 @@ import { useNavigate } from "react-router-dom";
 // Using standard FontAwesome icons
 
 // Define the roles available
-type UserRole = "admin" | "user" | "hod";
+type UserRole = "admin" | "user" | "hod" | "employee" | "bde";
 
 const LoginDashboard: React.FC = () => {
   const navigate = useNavigate();
 
+  // const handleRoleSelect = (role: UserRole) => {
+  //   console.log(`Role Selected: ${role}`);
+  //   // Here is where you would trigger navigation or MSAL login
+  //   // e.g., navigate('/dashboard');
+  //   if (role === "admin") {
+  //     navigate("/AdminDashboard");
+  //   }
+  //   if (role === "user") {
+  //     navigate("/EmployeeDashboard");
+  //   }
+  //   if (role === "hod") {
+  //     navigate("/ManagerDashboard");
+  //   }
+  //   if (role === "bde") {
+  //     navigate("/BDEDashboard");
+  //   }
+  // };
+
   const handleRoleSelect = (role: UserRole) => {
     console.log(`Role Selected: ${role}`);
-    // Here is where you would trigger navigation or MSAL login
-    // e.g., navigate('/dashboard');
-    if (role === "admin") {
-      navigate("/AdminDashboard");
+    localStorage.setItem("role", role); // << store the selected role
+    switch (role) {
+      case "admin":
+        navigate("/AdminDashboard");
+        break;
+      case "user":
+        navigate("/EmployeeDashboard");
+        break;
+      case "hod":
+        navigate("/ManagerDashboard");
+        break;
+      case "bde":
+        navigate("/BDEDashboard");
+        break;
     }
   };
 
@@ -110,6 +138,21 @@ const LoginDashboard: React.FC = () => {
                 <div className={styles.textGroup}>
                   <h3>Login as HOD</h3>
                   <p>Oversee your department</p>
+                </div>
+                <Icon className={styles.arrowIcon} />
+              </div>
+
+              {/* BDE Card */}
+              <div
+                className={`${styles.roleCard} ${styles.fullWidth}`}
+                onClick={() => handleRoleSelect("bde" as UserRole)}
+              >
+                <div className={styles.iconCircle}>
+                  <Icon iconName="Bullseye" />
+                </div>
+                <div className={styles.textGroup}>
+                  <h3>Login as BDE</h3>
+                  <p>Set and approve KPIs for all employees</p>
                 </div>
                 <Icon className={styles.arrowIcon} />
               </div>

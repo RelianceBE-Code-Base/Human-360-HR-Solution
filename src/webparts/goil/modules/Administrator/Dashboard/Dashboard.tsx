@@ -187,6 +187,8 @@ const getProgressColor = (progress: number) => {
   return "#10B981"; // Green
 };
 
+localStorage.setItem("role", "admin");
+
 const DepartmentOverview: React.FC<IDepartmentOverviewProps> = ({
   departments,
 }) => (

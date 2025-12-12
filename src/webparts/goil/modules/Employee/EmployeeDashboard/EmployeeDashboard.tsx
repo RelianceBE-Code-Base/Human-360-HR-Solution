@@ -22,7 +22,7 @@
  */
 
 import * as React from "react";
-import styles from "./EmpDashboard.module.scss";
+import styles from "./EmployeeDashboard.module.scss";
 import Card from "../../../components/common/Card/Card";
 import StatsCard from "../../../components/common/Card/StatsCard";
 import { IStatsData } from "../../../../../shared/types/IStatsData";
@@ -249,7 +249,7 @@ const initialDoughnutChartData = {
   ],
 };
 
-const EmpDashboard: React.FC = () => {
+const EmployeeDashboard: React.FC = () => {
   // --- STATE MANAGEMENT ---
   const [statsData, setStatsData] = React.useState<IStatsData[]>(initialStats);
   const [lineChartData, setLineChartData] =
@@ -411,4 +411,4 @@ const EmpDashboard: React.FC = () => {
   );
 };
 
-export default EmpDashboard;
+export default EmployeeDashboard;

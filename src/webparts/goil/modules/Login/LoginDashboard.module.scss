@@ -17,19 +17,19 @@ $hover-shadow: 0 10px 25px rgba(242, 150, 58, 0.15);
   min-height: 100vh;
   background-color: $bg-page;
   font-family: "Segoe UI", "Roboto", sans-serif;
-//   padding: 1rem;
+  //   padding: 1rem;
   box-sizing: border-box;
 }
 
 .mainCard {
   display: flex;
   width: 100%;
-//   max-width: 1000px; // Wide card
+  //   max-width: 1000px; // Wide card
   //   min-height: 600px;
   height: 100vh;
   width: 100vw;
   background: white;
-//   border-radius: 20px;
+  //   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   overflow: hidden; // Ensures the orange panel respects corners
 
@@ -225,4 +225,8 @@ $hover-shadow: 0 10px 25px rgba(242, 150, 58, 0.15);
   color: #ccc;
   transition: all 0.2s;
   margin-left: 1rem;
+}
+
+.fullWidth {
+  grid-column: span 2;
 }
