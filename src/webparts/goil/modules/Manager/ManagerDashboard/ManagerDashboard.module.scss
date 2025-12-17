@@ -22,7 +22,7 @@
 
 .topGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 2fr !important;
   gap: 1rem;
   margin-bottom: 1rem;
 
@@ -34,7 +34,7 @@
 .bottomGrid {
   display: grid;
   // grid-template-columns: repeat(3, 1fr);
-  grid-template-columns: 2fr 1fr 1fr !important;
+  grid-template-columns: repeat(3,1fr);
   gap: 1rem;
   align-items: stretch;
 
@@ -43,27 +43,34 @@
   }
 }
 
-.bottomGrid > :first-child {
-  width: 100% !important;
-  flex: 1 !important;
+// .bottomGrid > :first-child {
+//   width: 100% !important;
+//   flex: 1 !important;
+// }
+
+/* ALL cards same height */
+.bottomGrid > * {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .chartContainer {
   position: relative;
-  height: auto !important; /* auto-size */
-  min-height: 0 !important; /* optional safety */
-  margin: 1rem 0;
+  height: 260px; /* auto-size */
+  // min-height: 0 !important; /* optional safety */
+  // margin: 1rem 0;
 }
 
-/* Cap chart height so it never bloats */
-.chartContainer canvas {
-  max-height: 220px !important;
-}
+// /* Cap chart height so it never bloats */
+// .chartContainer canvas {
+//   max-height: 220px !important;
+// }
 
-/* Fix bar/doughnut/line charts collapsing */
-.chartContainer > div {
-  height: auto !important;
-}
+// /* Fix bar/doughnut/line charts collapsing */
+// .chartContainer > div {
+//   height: auto !important;
+// }
 
 // .chartContainer {
 //   position: relative;
@@ -131,7 +138,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  padding: 0.5rem 0;
+  //padding: 0.5rem 0;
 }
 
 .summaryItem {
@@ -147,12 +154,14 @@
   padding: 0.75rem;
   border-radius: 999px;
   font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
 }
 
 .summaryValue {
   color: #111827;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
 }
 
 .summaryLabel {
@@ -181,3 +190,138 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   box-sizing: border-box;
 }
+.iconBlue {
+  background: #e0edff;
+  color: #2563eb;
+}
+
+.iconGreen {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.iconOrange {
+  background: #fff7ed;
+  color: #f97316;
+}
+
+.iconRed {
+  background: #fee2e2;
+  color: #dc2626;
+}
+// .donutWrapper {
+//   position: relative;
+//   height: 220px;
+// }
+
+// .donutCenter {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   text-align: center;
+// }
+
+// .donutValue {
+//   font-size: 1.4rem;
+//   font-weight: 600;
+//   color: #111827;
+// }
+
+// .donutLabel {
+//   font-size: 0.8rem;
+//   color: #6b7280;
+//}
+/* Inner wrapper that stretches content */
+/* === DONUT CONTAINER === */
+.donutChart {
+  position: relative;          /* 🔥 REQUIRED */
+  flex: 1;
+  min-height: 260px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Chart fills container */
+.donutChart canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* === CENTER OVERLAY === */
+.donutCenter {
+  position: absolute;          /* 🔥 REQUIRED */
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  pointer-events: none;
+}
+
+.donutValue {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.donutLabel {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+.cardFill {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+}
+/* Competency chart fills vertical space */
+.competencyChart {
+  flex: 1;
+  position: relative;
+  min-height: 240px;
+}
+
+.competencyChart canvas {
+  height: 100% !important;
+  width: 100% !important; 
+}
+
+/* Donut chart fix */
+// .donutChart {
+//   position: relative;
+//   flex: 1;
+//   min-height: 240px;
+// }
+
+// .donutChart canvas {
+//   width: 100% !important;
+//   height: 100% !important;
+// }
+
+// /* Perfect center alignment */
+// .donutCenter {
+//   position: absolute;
+//   inset: 0;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   pointer-events: none;
+// }
+
+// .donutValue {
+//   font-size: 1.4rem;
+//   font-weight: 600;
+//   color: #111827;
+// }
+
+// .donutLabel {
+//   font-size: 0.8rem;
+//   color: #6b7280;
+// }

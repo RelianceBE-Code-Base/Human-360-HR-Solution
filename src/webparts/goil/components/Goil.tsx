@@ -26,6 +26,7 @@ import GoalsObjectives from "../modules/Employee/Goals/GoalsObjectives";
 import SystemConfigurations from "../modules/Administrator/Settings Configuration/SettingsConfiguration";
 // Manager Components
 import ManagerDashboard from "../../../webparts/goil/modules/Manager/ManagerDashboard/ManagerDashboard";
+import ManagercreateKPI from "../../../webparts/goil/modules/Manager/ManagerCreateKPI/ManangerCreateKPI";
 import TeamManagement from "../../../webparts/goil/modules/Manager/ManagerTeamManagement/ManagerTeamManagement";
 // Employee Components
 // import EmpDashboard from "../../goil/modules/Employee/EmpDashboard/EmpDashboard";
@@ -729,6 +730,11 @@ export default class Goil extends React.Component<IGoilProps, IGoilState> {
                         <Route
                           path="/ManagerDashboard"
                           element={<ManagerDashboard />}
+                        />
+
+                        <Route
+                          path="/ManagercreateKPI"
+                          element={<ManagercreateKPI />}
                         />
                         <Route
                           path="/TeamManagement"

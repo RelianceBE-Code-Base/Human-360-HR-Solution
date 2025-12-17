@@ -115,7 +115,7 @@ const SideBar: React.FC = () => {
             <Icon iconName="Calendar"></Icon>
             <span>Performance Review</span>
             </NavLink>
-            <NavLink to="/" className={getNavLinkClass} end>
+            <NavLink to="/ManagercreateKPI" className={getNavLinkClass} end>
               <Icon iconName="Chart"></Icon>
               <span>Create KPI</span>
             </NavLink>

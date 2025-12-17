@@ -24,7 +24,10 @@ const TeamManagement: React.FC = () => {
   const [loadingDropdowns, setLoadingDropdowns] = React.useState(true);
   
   
-
+const closeModal = () => {
+    setShowModal(false);
+    // reset form state here if needed
+  };
 
   // --------------------------
   // 🔥 FETCH API DROPDOWNS HERE
@@ -76,7 +79,7 @@ const TeamManagement: React.FC = () => {
       className={`${styles.tabButton} ${activeTab === "feedback" ? styles.activeTab : ""}`}
       onClick={() => {
         setActiveTab("feedback");
-        setShowModal(true);
+        // setShowModal(true);
       }}
     >
       <Icon iconName="Feedback" className={styles.tabIcon} />
@@ -99,10 +102,9 @@ const TeamManagement: React.FC = () => {
       Development & Growth
     </button>
   </div>
-)}
+ )}
 
-
-      {/* FEEDBACK CONTENT */}
+    {/* FEEDBACK CONTENT */}
       {activeTab === "feedback" && (
         <>
           {/* Metrics */}
@@ -126,7 +128,9 @@ const TeamManagement: React.FC = () => {
                 Team Feedback Management
               </h3>
 
-              <button className={styles.requestFeedbackBtn}>
+              <button className={styles.requestFeedbackBtn}
+                onClick={() => setShowModal(true)}
+              >
                 <Icon iconName="AddFriend" />
                 Request Feedback
               </button>
@@ -296,91 +300,232 @@ const TeamManagement: React.FC = () => {
 
   </div>
 )}
-  
-  {activeTab === "createObjective" && (
-  <div className={styles.pageWrapper}>
-    <div className={styles.fullPageContent}>
 
-      <div className={styles.fullPageHeader}>
-        <h2>Create New Objective</h2>
+{/* DEVELOPMENT & GROWTH TAB */}
+{activeTab === "growth" && (
+  <div className={styles.growthWrapper}>
 
-        <button 
-          className={styles.closeBtn} 
-          onClick={() => setActiveTab("goals")}
-        >
-          <Icon iconName="ChromeClose" />
-        </button>
+    {/* Employee Development & Growth */}
+    <Card title="">
+      <h3 className={styles.sectionTitle}>
+        <Icon iconName="Education" />
+        Employee Development & Growth
+      </h3>
+
+      <div className={styles.growthGrid}>
+
+        {/* Top Skill Growth */}
+        <div className={styles.growthCard}>
+          <div className={styles.growthHeader}>
+            <Icon iconName="Lightbulb" className={styles.greenIcon} />
+            <h4>Top Skill Growth</h4>
+          </div>
+
+          <p className={styles.metricText}>
+            <strong>+12%</strong> Skill improvement (This Quarter)
+          </p>
+
+          <p className={styles.subText}>
+            Biggest skill:
+            <span className={styles.highlight}> Leadership (+13%)</span>
+          </p>
+        </div>
+
+        {/* Training */}
+        <div className={styles.growthCard}>
+          <div className={styles.growthHeader}>
+            <Icon iconName="ClipboardList" className={styles.purpleIcon} />
+            <h4>Training</h4>
+          </div>
+
+          <p className={styles.metricText}>
+            <strong>2</strong> Team members completed leadership training
+          </p>
+
+          <p className={styles.linkText}>
+            Next up → Growth Mindset Module
+          </p>
+        </div>
+
+        {/* Development Focus */}
+        <div className={styles.growthCard}>
+          <div className={styles.growthHeader}>
+            <Icon iconName="PieSingle" className={styles.blueIcon} />
+            <h4>Development Focus</h4>
+          </div>
+
+          <ul className={styles.focusList}>
+            <li>Leader as Coach</li>
+            <li>Advanced Data Analysis</li>
+            <li>Cross-team Collaboration</li>
+          </ul>
+        </div>
+
       </div>
+    </Card>
 
-      <div className={styles.fullPageBody}>
+   
+    {/* Recent Team Activity HEADER (OUTSIDE CARD) */}
+<h3 className={styles.sectionTitle}>
+  <Icon iconName="AlignLeft" />
+  Recent Team Activity
+</h3>
 
-        {/* Row 1 */}
-        <div className={styles.formRow}>
-          <div className={styles.formControl}>
-            <label>Company Objectives</label>
-            <select>
-              <option>Reduce downtime and enhance operation</option>
-            </select>
-          </div>
+<Card title="">
+  <div className={styles.activityList}>
 
-          <div className={styles.formControl}>
-            <label>Department Objective</label>
-            <input type="text" placeholder="Monitor the equipments daily" />
-          </div>
-        </div>
+    <div className={styles.activityRow}>
+      <span className={`${styles.badge} ${styles.success}`}>
+        <Icon iconName="CheckMark" />
+        Goal completed
+      </span>
 
-        {/* Row 2 */}
-        <div className={styles.formRow}>
-          <div className={styles.formControl}>
-            <label>Start Date</label>
-            <input type="date" />
-          </div>
+      <span className={styles.activityText}>
+        <strong>Priscilia Evbota:</strong> “Implement new reporting system”
+      </span>
 
-          <div className={styles.formControl}>
-            <label>Due Date</label>
-            <input type="date" />
-          </div>
-        </div>
-
-        {/* Description */}
-        <div className={styles.formControl}>
-          <label>Description</label>
-          <textarea rows={3}></textarea>
-        </div>
-
-        {/* Add Goal */}
-        <div className={styles.goalAddRow}>
-          <button className={styles.cancelInline}>Cancel</button>
-          <button className={styles.addGoalBtn}>
-            <Icon iconName="Add" /> Add
-          </button>
-        </div>
-
-        {/* Table */}
-        <table className={styles.objectiveTable}>
-          <thead>
-            <tr>
-              <th>Goal</th>
-              <th>Target</th>
-              <th>Start Date</th>
-              <th>Due</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-
-      <div className={styles.fullPageFooter}>
-        <button className={styles.cancelBtn} onClick={() => setActiveTab("goals")}>
-          Cancel
-        </button>
-        <button className={styles.sendBtn}>Submit</button>
-      </div>
-
+      <span className={styles.time}>2 days ago</span>
     </div>
+
+    <div className={styles.activityRow}>
+      <span className={`${styles.badge} ${styles.info}`}>
+        <Icon iconName="Feedback" />
+        Feedback given
+      </span>
+
+      <span className={styles.activityText}>
+        <strong>Kehinde Adedeji:</strong> provided feedback to Sara Uyi
+      </span>
+
+      <span className={styles.time}>4 days ago</span>
+    </div>
+
+    <div className={styles.activityRow}>
+      <span className={`${styles.badge} ${styles.warning}`}>
+        <Icon iconName="Bullseye" />
+        Goal assigned
+      </span>
+
+      <span className={styles.activityText}>
+        <strong>Christabel Ukoh:</strong> assigned a new goal to Sara Uyi
+      </span>
+
+      <span className={styles.time}>6 days ago</span>
+    </div>
+
+    <div className={styles.activityRow}>
+      <span className={`${styles.badge} ${styles.danger}`}>
+        <Icon iconName="Warning" />
+        Self-review overdue
+      </span>
+
+      <span className={styles.activityText}>
+        <strong>Sara Uyi:</strong> missed self-review deadline
+      </span>
+
+      <span className={styles.time}>7 days ago</span>
+    </div>
+
+  </div>
+</Card>
   </div>
 )}
+     {activeTab === "createObjective" && (
+  <div className={styles.createObjectivePage}>
+    
+   
+    <div className={styles.createHeader}>
+      <h2>Create New Objective</h2>
+
+      <button
+        className={styles.closeIcon}
+        onClick={() => setActiveTab("goals")}
+      >
+        <Icon iconName="ChromeClose" />
+      </button>
+    </div>
+
+    
+    <div className={styles.createBody}>
+
+      <div className={styles.formRow}>
+        <div className={styles.formGroup}>
+          <label>Company Objectives</label>
+          <select>
+            <option>Reduce downtime and enhance operation</option>
+          </select>
+        </div>
+
+        <div className={styles.formGroup}>
+          <label>Department Objective</label>
+          <input
+            type="text"
+            defaultValue="Monitor the equipments daily"
+          />
+        </div>
+      </div>
+
+      <div className={styles.formRow}>
+        <div className={styles.formGroup}>
+          <label>Start Date</label>
+          <input type="date" />
+        </div>
+
+        <div className={styles.formGroup}>
+          <label>Due Date</label>
+          <input type="date" />
+        </div>
+      </div>
+
+      <div className={styles.formGroup}>
+        <label>Description</label>
+        <textarea rows={3} />
+      </div>
+
+      
+      <div className={styles.inlineActions}>
+        <button className={styles.inlineCancel}>Cancel</button>
+        <button className={styles.inlineAdd}>
+          <Icon iconName="Add" />
+          Add
+        </button>
+      </div>
+
+    
+      <table className={styles.objectiveTable}>
+        <thead>
+          <tr>
+            <th>Goal</th>
+            <th>Target</th>
+            <th>Start Date</th>
+            <th>Due</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody />
+      </table>
+    </div>
+
+   
+    <div className={styles.createFooter}>
+      <button
+        className={styles.footerCancel}
+        onClick={() => setActiveTab("goals")}
+      >
+        Cancel
+      </button>
+
+      <button className={styles.footerSubmit}>
+        Submit
+      </button>
+    </div>
+
+  </div>
+)}
+
+
+
+
    
 {/* MODAL */}
       {showModal && (
@@ -388,7 +533,7 @@ const TeamManagement: React.FC = () => {
           <div className={styles.modal}>
             <div className={styles.modalHeader}>
               <h2>Request Feedback</h2>
-              <button className={styles.closeBtn} onClick={() => setShowModal(false)}>
+              <button className={styles.closeBtn} onClick= {closeModal} >
                 <Icon iconName="ChromeClose" />
               </button>
             </div>
@@ -452,7 +597,7 @@ const TeamManagement: React.FC = () => {
             </div>
 
             <div className={styles.modalFooter}>
-              <button className={styles.cancelBtn} onClick={() => setShowModal(false)}>
+              <button className={styles.cancelBtn} onClick={closeModal}>
                 Cancel
               </button>
               <button className={styles.sendBtn}>Send</button>

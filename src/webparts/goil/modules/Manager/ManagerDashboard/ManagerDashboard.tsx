@@ -86,6 +86,23 @@ const quarterlyTrendData = {
   ],
 };
 
+// const competencyDistributionData = {
+//   labels: [
+//     "Leadership",
+//     "Comms",
+//     "Teamwork",
+//     "Problem-Solving",
+//     "Innovation",
+//     "Adaptability",
+//   ],
+//   datasets: [
+//     {
+//       label: "Competency",
+//       data: [8, 10, 7, 9, 6, 8],
+//       backgroundColor: "#3B82F6",
+//     },
+//   ],
+// };
 const competencyDistributionData = {
   labels: [
     "Leadership",
@@ -97,12 +114,14 @@ const competencyDistributionData = {
   ],
   datasets: [
     {
-      label: "Competency",
       data: [8, 10, 7, 9, 6, 8],
-      backgroundColor: "#3B82F6",
+      backgroundColor: "#c7d7fe",
+      borderRadius: 8,
+      barThickness: 36,
     },
   ],
 };
+
 
 const appraisalStatusData = {
   labels: ["Completed", "In Progress", "Approval", "Not Started"],
@@ -179,91 +198,208 @@ const ManagerDashboard: React.FC = () => {
 
       {/* Bottom row: 3 cards */}
       <div className={styles.bottomGrid}>
-        <Card title="Team Summary">
-          <div className={styles.summaryList}>
-            {/* Team Members */}
-            <div className={styles.summaryItem}>
-              <div
-                className={styles.summaryIcon + " bg-blue-100 text-blue-600"}
-              >
-                <Icon iconName="Group" />
-              </div>
-              <div>
-                <div className={styles.summaryValue}>10</div>
-                <div className={styles.summaryLabel}>Team Members</div>
-              </div>
-            </div>
+      {/* <Card title="Team Summary">
+  <div className={styles.summaryList}>
+    <div className={styles.summaryItem}>
+      <div className={`${styles.summaryIcon} ${styles.iconBlue}`}>
+        <Icon iconName="People" />
+      </div>
+      <div>
+        <div className={styles.summaryValue}>10</div>
+        <div className={styles.summaryLabel}>Team Members</div>
+      </div>
+    </div>
 
-            {/* Completed Self-Reviews */}
-            <div className={styles.summaryItem}>
-              <div
-                className={styles.summaryIcon + " bg-green-100 text-green-600"}
-              >
-                <Icon iconName="CheckMark" />
-              </div>
-              <div>
-                <div className={styles.summaryValue}>7</div>
-                <div className={styles.summaryLabel}>
-                  Completed Self-Reviews
-                </div>
-              </div>
-            </div>
+    <div className={styles.summaryItem}>
+      <div className={`${styles.summaryIcon} ${styles.iconGreen}`}>
+        <Icon iconName="CompletedSolid" />
+      </div>
+      <div>
+        <div className={styles.summaryValue}>7</div>
+        <div className={styles.summaryLabel}>Completed Self-Reviews</div>
+      </div>
+    </div>
 
-            {/* Goals In Progress */}
-            <div className={styles.summaryItem}>
-              <div
-                className={
-                  styles.summaryIcon + " bg-yellow-100 text-yellow-600"
-                }
-              >
-                <Icon iconName="Bullseye" />
-              </div>
-              <div>
-                <div className={styles.summaryValue}>24</div>
-                <div className={styles.summaryLabel}>Goals In Progress</div>
-              </div>
-            </div>
+    <div className={styles.summaryItem}>
+      <div className={`${styles.summaryIcon} ${styles.iconOrange}`}>
+        <Icon iconName="BullseyeTarget" />
+      </div>
+      <div>
+        <div className={styles.summaryValue}>24</div>
+        <div className={styles.summaryLabel}>Goals In Progress</div>
+      </div>
+    </div>
 
-            {/* Overdue Feedback */}
-            <div className={styles.summaryItem}>
-              <div className={styles.summaryIcon + " bg-red-100 text-red-600"}>
-                <Icon iconName="Warning" />
-              </div>
-              <div>
-                <div className={styles.summaryValue}>3</div>
-                <div className={styles.summaryLabel}>Overdue Feedback</div>
-              </div>
-            </div>
-          </div>
-        </Card>
+    <div className={styles.summaryItem}>
+      <div className={`${styles.summaryIcon} ${styles.iconRed}`}>
+        <Icon iconName="WarningSolid" />
+      </div>
+      <div>
+        <div className={styles.summaryValue}>3</div>
+        <div className={styles.summaryLabel}>Overdue Feedback</div>
+      </div>
+    </div>
+  </div>
+      </Card> */}
+      <Card title="Team Summary">
+  <div className={styles.cardFill}>
+    <div className={styles.summaryList}>
+      <div className={styles.summaryItem}>
+        <div className={`${styles.summaryIcon} ${styles.iconBlue}`}>
+          <Icon iconName="People" />
+        </div>
+        <div>
+          <div className={styles.summaryValue}>10</div>
+          <div className={styles.summaryLabel}>Team Members</div>
+        </div>
+      </div>
 
-        <Card title="Competency Distribution">
-          <div className={styles.chartContainer}>
-            <Bar
-              data={competencyDistributionData}
-              options={{
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: { y: { beginAtZero: true } },
-              }}
-            />
-          </div>
-        </Card>
+      <div className={styles.summaryItem}>
+        <div className={`${styles.summaryIcon} ${styles.iconGreen}`}>
+          <Icon iconName="CompletedSolid" />
+        </div>
+        <div>
+          <div className={styles.summaryValue}>7</div>
+          <div className={styles.summaryLabel}>Completed Self-Reviews</div>
+        </div>
+      </div>
 
-        <Card title="Appraisal Status Distribution">
-          <div className={styles.chartContainer}>
-            <Doughnut
-              data={appraisalStatusData}
-              options={{
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { position: "bottom" } },
-                cutout: "60%",
-              }}
-            />
-          </div>
-        </Card>
+      <div className={styles.summaryItem}>
+        <div className={`${styles.summaryIcon} ${styles.iconOrange}`}>
+          <Icon iconName="BullseyeTarget" />
+        </div>
+        <div>
+          <div className={styles.summaryValue}>24</div>
+          <div className={styles.summaryLabel}>Goals In Progress</div>
+        </div>
+      </div>
+
+      <div className={styles.summaryItem}>
+        <div className={`${styles.summaryIcon} ${styles.iconRed}`}>
+          <Icon iconName="WarningSolid" />
+        </div>
+        <div>
+          <div className={styles.summaryValue}>3</div>
+          <div className={styles.summaryLabel}>Overdue Feedback</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Card>
+
+
+
+  {/* <Card title="Competency Distribution">
+    <div className={styles.chartContainer}>
+    <Bar
+        data={competencyDistributionData}
+        options={{
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+        },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: {
+                color: "#6b7280",
+                font: { size: 11 },
+              },
+                 },
+      y:{
+        beginAtZero: true,
+        grid: { display: false },
+        ticks: { display: false },
+      },
+      },
+      }}
+    />
+    </div>
+  </Card> */}
+  <Card title="Competency Distribution">
+  <div className={styles.cardFill}>
+    <div className={styles.competencyChart}>
+      <Bar
+        data={competencyDistributionData}
+        options={{
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: { color: "#6b7280", font: { size: 11 } },
+            },
+            y: {
+              beginAtZero: true,
+              grid: { display: false },
+              ticks: { display: false },
+            },
+          },
+        }}
+      />
+    </div>
+  </div>
+</Card>
+
+ {/* <Card title="Appraisal Status Distribution">
+  <div className={styles.cardFill}>
+    <div className={styles.donutChart}>
+      <Doughnut
+        data={appraisalStatusData}
+        options={{
+          maintainAspectRatio: false,
+          cutout: "72%",
+          plugins: {
+            legend: {
+              position: "bottom",
+              labels: {
+                usePointStyle: true,
+                boxWidth: 8,
+              },
+            },
+          },
+        }}
+      />
+
+      <div className={styles.donutCenter}>
+        <div className={styles.donutValue}>30</div>
+        <div className={styles.donutLabel}>Total</div>
+      </div>
+    </div>
+  </div>
+</Card> */}
+<Card title="Appraisal Status Distribution">
+  <div className={styles.cardFill}>
+    <div className={styles.donutChart}>
+      <Doughnut
+        data={appraisalStatusData}
+        options={{
+          maintainAspectRatio: false,
+          cutout: "72%",
+          plugins: {
+            legend: {
+              position: "bottom",
+              labels: {
+                usePointStyle: true,
+                boxWidth: 8,
+              },
+            },
+          },
+        }}
+      />
+      {/* 👇 MUST be INSIDE donutChart */}
+      <div className={styles.donutCenter}>
+        <div className={styles.donutValue}>30</div>
+        <div className={styles.donutLabel}>Total</div>
+      </div>
+    </div>
+  </div>
+</Card>
+
+
+
       </div>
     </section>
   );
