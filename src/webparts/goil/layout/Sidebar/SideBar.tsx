@@ -133,11 +133,14 @@ const SideBar: React.FC = () => {
         <>
           {/* Employee / User Menu */}
           <div className={styles.navSection}>
-            <div className={styles.navSectionTitle}>Employee Dashboard</div>
+            <div className={styles.navSectionTitle}>Main</div>
             <NavLink to="/EmployeeDashboard" className={getNavLinkClass}>
               <Icon iconName="PlayerSettings" />
               <span>Employee Dashboard</span>
             </NavLink>
+          </div>
+          <div className={styles.navSection}>
+            <div className={styles.navSectionTitle}>My Work</div>
             <NavLink to="/FeedbackCenter" className={getNavLinkClass}>
               <Icon iconName="EMI" />
               <span>Feedback</span>
@@ -184,6 +187,47 @@ const SideBar: React.FC = () => {
             <NavLink to="/reports" className={getNavLinkClass}>
               <Icon iconName="PowerBILogo16" />
               <span>Reports & Analytics</span>
+            </NavLink>
+          </div>
+        </>
+      );
+      break;
+
+    case "auditor":
+      content = (
+        <>
+          {/* Auditor Menu */}
+          <div className={styles.navSection}>
+            <div className={styles.navSectionTitle}>Main</div>
+            <NavLink to="/AuditorDashboard" className={getNavLinkClass} end>
+              <Icon iconName="ViewDashboard" />
+              <span>Dashboard</span>
+            </NavLink>
+          </div>
+          <div className={styles.navSection}>
+            <div className={styles.navSectionTitle}>Audit & Compliance</div>
+            <NavLink to="/audit-trail" className={getNavLinkClass}>
+              <Icon iconName="Chart" />
+              <span>Audit Trail</span>
+            </NavLink>
+            <NavLink to="/compliance-reports" className={getNavLinkClass}>
+              <Icon iconName="CheckList" />
+              <span>Compliance Reports</span>
+            </NavLink>
+            <NavLink to="/coming-soon" className={getNavLinkClass}>
+              <Icon iconName="CircleAdditionSolid" />
+              <span>System Logs</span>
+            </NavLink>
+          </div>
+          <div className={styles.navSection}>
+            <div className={styles.navSectionTitle}>Monitoring</div>
+            <NavLink to="/coming-soon" className={getNavLinkClass}>
+              <Icon iconName="Chart" />
+              <span>KPI Dashboard</span>
+            </NavLink>
+            <NavLink to="/coming-soon" className={getNavLinkClass}>
+              <Icon iconName="CheckList" />
+              <span>Reports</span>
             </NavLink>
           </div>
         </>

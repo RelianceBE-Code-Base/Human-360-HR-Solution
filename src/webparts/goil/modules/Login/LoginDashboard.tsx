@@ -28,28 +28,10 @@ import { useNavigate } from "react-router-dom";
 // Using standard FontAwesome icons
 
 // Define the roles available
-type UserRole = "admin" | "user" | "hod" | "employee" | "bde";
+type UserRole = "admin" | "user" | "hod" | "employee" | "bde" | "auditor";
 
 const LoginDashboard: React.FC = () => {
   const navigate = useNavigate();
-
-  // const handleRoleSelect = (role: UserRole) => {
-  //   console.log(`Role Selected: ${role}`);
-  //   // Here is where you would trigger navigation or MSAL login
-  //   // e.g., navigate('/dashboard');
-  //   if (role === "admin") {
-  //     navigate("/AdminDashboard");
-  //   }
-  //   if (role === "user") {
-  //     navigate("/EmployeeDashboard");
-  //   }
-  //   if (role === "hod") {
-  //     navigate("/ManagerDashboard");
-  //   }
-  //   if (role === "bde") {
-  //     navigate("/BDEDashboard");
-  //   }
-  // };
 
   const handleRoleSelect = (role: UserRole) => {
     console.log(`Role Selected: ${role}`);
@@ -66,6 +48,9 @@ const LoginDashboard: React.FC = () => {
         break;
       case "bde":
         navigate("/BDEDashboard");
+        break;
+      case "auditor":
+        navigate("/AuditorDashboard");
         break;
     }
   };
@@ -136,7 +121,7 @@ const LoginDashboard: React.FC = () => {
                   <Icon iconName="Group" />
                 </div>
                 <div className={styles.textGroup}>
-                  <h3>Login as HOD</h3>
+                  <h3>Login as Manager</h3>
                   <p>Oversee your department</p>
                 </div>
                 <Icon className={styles.arrowIcon} />
@@ -144,7 +129,7 @@ const LoginDashboard: React.FC = () => {
 
               {/* BDE Card */}
               <div
-                className={`${styles.roleCard} ${styles.fullWidth}`}
+                className={`${styles.roleCard} ${styles.smallCard}`}
                 onClick={() => handleRoleSelect("bde" as UserRole)}
               >
                 <div className={styles.iconCircle}>
@@ -153,6 +138,21 @@ const LoginDashboard: React.FC = () => {
                 <div className={styles.textGroup}>
                   <h3>Login as BDE</h3>
                   <p>Set and approve KPIs for all employees</p>
+                </div>
+                <Icon className={styles.arrowIcon} />
+              </div>
+
+              {/* Auditor Card */}
+              <div
+                className={`${styles.roleCard} ${styles.smallCard}`}
+                onClick={() => handleRoleSelect("auditor")}
+              >
+                <div className={styles.iconCircle}>
+                  <Icon iconName="ComplianceAudit" />
+                </div>
+                <div className={styles.textGroup}>
+                  <h3>Login as Auditor</h3>
+                  <p>Review performance data and audit reports</p>
                 </div>
                 <Icon className={styles.arrowIcon} />
               </div>
