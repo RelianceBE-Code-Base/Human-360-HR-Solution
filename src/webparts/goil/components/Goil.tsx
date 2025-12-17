@@ -27,12 +27,16 @@ import SystemConfigurations from "../modules/Administrator/Settings Configuratio
 // Manager Components
 import ManagerDashboard from "../../../webparts/goil/modules/Manager/ManagerDashboard/ManagerDashboard";
 // Employee Components
-// import EmpDashboard from "../../goil/modules/Employee/EmpDashboard/EmpDashboard";
 import CreatePerformanceCycle from "../modules/Administrator/Performance/Perfromance Cycles/Create Performance Cycles/CreatePerformanceCycle";
 import AddUserForm from "../modules/Administrator/Administration/User Management/AddNewUser/AddNewUser";
 //BDE Components
 import BDEDashboard from "../modules/BDE/BDEDashboard/BDEDashboard";
 import ApprovalQueue from "../modules/BDE/ApprovalQueue/ApprovalQueue";
+import AuditorDashboard from "../modules/Auditors/Main/Dashboard";
+import AuditTrail from "../modules/Auditors/Audit & Compliance/Audit Trail/AuditTrail";
+import ComplianceReports from "../modules/Auditors/Audit & Compliance/Compliance Reports/ComplianceReports";
+import BatchUploadKPIs from "../modules/Administrator/KPI/Batch KPI Upload/BatchKpiUpload";
+import SystemLogs from "../modules/Auditors/Audit & Compliance/System Logs/SystemLogs";
 
 interface IGoilState {
   KPIs: IKPI[];
@@ -697,6 +701,10 @@ export default class Goil extends React.Component<IGoilProps, IGoilState> {
                           element={<CreateKPI />}
                         />
                         <Route
+                          path="/kPIs/batch-upload"
+                          element={<BatchUploadKPIs />}
+                        />
+                        <Route
                           path="/performance-cycles"
                           element={<PerformanceCycles />}
                         />
@@ -729,11 +737,6 @@ export default class Goil extends React.Component<IGoilProps, IGoilState> {
                           path="/ManagerDashboard"
                           element={<ManagerDashboard />}
                         />
-                        {/* Employee section */}
-                        {/* <Route
-                          path="/EmpDashboard"
-                          element={<EmpDashboard />}
-                        /> */}
                         {/* BDC section */}
                         <Route
                           path="/BDEDashboard"
@@ -743,6 +746,17 @@ export default class Goil extends React.Component<IGoilProps, IGoilState> {
                           path="/approval-queue"
                           element={<ApprovalQueue />}
                         />
+                        {/* Auditor section */}
+                        <Route
+                          path="/AuditorDashboard"
+                          element={<AuditorDashboard />}
+                        />
+                        <Route path="/audit-trail" element={<AuditTrail />} />
+                        <Route
+                          path="/compliance-reports"
+                          element={<ComplianceReports />}
+                        />
+                        <Route path="/system-logs" element={<SystemLogs />} />
                       </Routes>
                     </div>
                   </main>

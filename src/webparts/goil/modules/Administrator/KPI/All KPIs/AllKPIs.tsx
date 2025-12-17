@@ -201,10 +201,20 @@ const AllKPIs: React.FC = () => {
           </p>
         </div>
 
-        <Button onClick={() => navigate("/kpis/kpi-create")}>
-          <Icon iconName="add" />
-          Create New KPI
-        </Button>
+        <div className="d-flex gap-2">
+          <Button
+            variant="success"
+            onClick={() => navigate("/kpis/batch-upload")}
+          >
+            <Icon iconName="Upload" />
+            Batch Upload
+          </Button>
+
+          <Button onClick={() => navigate("/kpis/kpi-create")}>
+            <Icon iconName="add" />
+            Create New KPI
+          </Button>
+        </div>
       </div>
 
       <Card title="Filters">
